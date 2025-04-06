@@ -1,8 +1,22 @@
 <header>
-    <h1>BalkoWebsite</h1>
-    <nav>
-      <a routerLink="/" routerLinkActive="active">Home</a>
-      <a routerLink="/about" routerLinkActive="active">About</a>
-      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="logo">
+        <a routerLink="/">BalkoWebsite</a>
+      </div>
+
+      <!-- Hamburger Button (Visible in Mobile) -->
+      <button class="hamburger" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  
+    <!-- Bottom Bar (Navigation) -->
+    <nav class="bottom-bar" [ngClass]="{'show': isMenuOpen}">
+      <a routerLink="/" routerLinkActive="active" (click)="toggleMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">About Us</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact</a>
     </nav>
   </header>

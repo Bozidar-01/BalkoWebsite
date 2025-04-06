@@ -1,0 +1,266 @@
+.swiper {
+    width: 100%;
+    height: 500px;
+    position: relative;
+  }
+  
+  .swiper-slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .swiper-button-next::after {
+    content: '\203A';
+    font-size: 40px;
+    color: white;
+  }
+  
+  .swiper-button-prev::after {
+    content: '\2039';
+    font-size: 40px;
+    color: white;
+  }
+  
+  .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: white;
+  }
+  
+  /* Slide Text Overlay */
+  .slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    text-align: left;
+  }
+  
+  .slide-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .slide-text p {
+    font-size: 16px;
+    margin: 5px 0 0;
+  }
+  
+
+  /* Mobile View */
+  @media (max-width: 768px) {
+    .slide-text {
+        position: absolute !important;
+        top: 60px !important;
+        left: 60px !important;
+        color: white;
+      }
+      
+    .swiper {
+      height: 300px; /* Shorter for mobile */
+    }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none; /* Hide arrows in mobile view */
+    }
+  
+    .swiper-pagination {
+      bottom: 10px;
+    }
+  
+    .slide-text h2 {
+      font-size: 20px;
+    }
+  
+    .slide-text p {
+      font-size: 14px;
+    }
+  
+    .promo-section {
+      padding: 15px;
+    }
+  
+    .promo-section h2 {
+      font-size: 18px;
+    }
+  
+    .promo-section button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    .promo-section li {
+      font-size: 14px;
+    }
+  }
+
+
+  /* Add this to your SCSS */
+@keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 30%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .slide-text {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .slide-text.animate-in {
+    animation: slideInUp 0.8s ease forwards;
+  }
+  
+
+
+//   .secondContainer{
+//     width: 100%;
+//     height: 500px;
+//     img {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//       }
+
+
+//         /* Promotional Section */
+//   .promo-section {
+//     position: absolute;
+//     top: 65%;
+//     left: 50%;
+//     transform: translate(-50%,-35%);
+//     padding: 20px;
+//     text-align: center;
+//     font-family: Arial, sans-serif;
+//   }
+  
+//   .promo-section h2 {
+//     font-size: 24px;
+//     font-weight: bold;
+//     margin-bottom: 20px;
+//     line-height: 1.2;
+//   }
+  
+//   .promo-section button {
+//     background-color: #e63946; /* Red like in the image */
+//     color: black;
+//     border: none;
+//     padding: 10px 20px;
+//     font-size: 16px;
+//     font-weight: bold;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     margin-bottom: 20px;
+//   }
+  
+//   .promo-section ul {
+//     list-style: none;
+//     padding: 0;
+//     text-align: left;
+//   }
+  
+//   .promo-section li {
+//     margin-bottom: 10px;
+//     font-size: 16px;
+//     display: flex;
+//     align-items: flex-start;
+//   }
+  
+//   .promo-section li span {
+//     margin-left: 10px;
+//   }
+  
+      
+
+//   }
+
+.secondContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+  
+    img {
+      width: 100%;
+      height: 40vh !important;
+      display: block;
+    }
+  
+    .promo-section {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: green;
+      z-index: 2;
+  
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+  
+      button {
+        background-color: #e63946;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+  
+      li {
+        margin-bottom: 10px;
+        font-size: 16px;
+  
+        span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  
