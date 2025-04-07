@@ -1,5 +1,6 @@
 header {
-    background-color: #1a1a1a;
+  width: 100%;
+    background-color: #000;
     color: white;
     font-family: Arial, sans-serif;
   }
@@ -8,8 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid #333;
+    padding: 32px 80px;
   }
   
   .logo a {
@@ -70,12 +70,12 @@ header {
   .bottom-bar {
     display: flex;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 17px 20px;
     background-color: #222;
   }
   
   .bottom-bar a {
-    color: white;
+    color: #66616155;
     text-decoration: none;
     margin: 0 15px;
     font-size: 16px;
@@ -84,7 +84,7 @@ header {
   
   .bottom-bar a:hover,
   .bottom-bar a.active {
-    color: #ffcc00;
+    color: #aa8372cd;
   }
   
 

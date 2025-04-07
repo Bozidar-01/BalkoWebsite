@@ -1,14 +1,14 @@
-import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, PLATFORM_ID, Inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
@@ -36,7 +36,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
     const swiper = new Swiper(container, {
       loop: true,
-      autoplay:true,
+      // autoplay: {
+      //   delay: 3000, // Adjust this value (in milliseconds) to change speed (e.g., 3000 = 3 seconds)
+      //   disableOnInteraction: false, // Optional: Keeps autoplay running after user interaction
+      // },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',

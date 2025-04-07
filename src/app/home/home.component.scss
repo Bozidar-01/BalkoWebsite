@@ -1,6 +1,6 @@
 .swiper {
     width: 100%;
-    height: 500px;
+    height: 650px;
     position: relative;
   }
   
@@ -9,6 +9,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    // Smoke tint overlay
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.4), // Darker at the top
+        rgba(0, 0, 0, 0.4)  // Lighter at the bottom
+      );
+      z-index: 1; // Places tint above image but below text
+      pointer-events: none; // Ensures clicks pass through to the slide
+    }
   }
   
   .swiper-slide img {
@@ -19,6 +36,7 @@
   
   .swiper-button-next,
   .swiper-button-prev {
+    z-index: 9999999999999;
     color: white;
     width: 40px;
     height: 40px;
@@ -33,44 +51,52 @@
   }
   
   .swiper-button-next::after {
-    content: '\203A';
+    content: '';
     font-size: 40px;
     color: white;
   }
   
   .swiper-button-prev::after {
-    content: '\2039';
+    content: '';
     font-size: 40px;
     color: white;
   }
-  
-  .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, 0.5);
+
+  .swiper-pagination{
+    color: white !important;
   }
   
+  .swiper-pagination-bullet {
+    background: white !important;
+    color: white !important;
+    }
+  
   .swiper-pagination-bullet-active {
-    background: white;
+    background: white !important;
+    color: white !important;
   }
   
   /* Slide Text Overlay */
   .slide-text {
+    width: 630px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     color: white;
-    text-align: left;
+    text-align: start;
+    z-index: 999999;
   }
   
   .slide-text h2 {
-    font-size: 28px;
+    font-size: 58px;
     font-weight: bold;
     margin: 0;
     line-height: 1.2;
   }
   
   .slide-text p {
-    font-size: 16px;
+    font-size: 30px;
     margin: 5px 0 0;
   }
   
@@ -210,57 +236,153 @@
 //   }
 
 .secondContainer {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  .background-img {
     width: 100%;
-    height: auto;
-  
-    img {
-      width: 100%;
-      height: 40vh !important;
-      display: block;
-    }
-  
-    .promo-section {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: green;
-      z-index: 2;
-  
-      h2 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 15px;
+    height: 50vh;
+    display: block;
+  }
+
+  .promo-content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-30%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 80px;
+
+    .promo-box {
+      padding: 40px 50px;
+      border-radius: 8px;
+      max-width: 520px;
+
+      .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h1 {
+          font-size: 40px;
+          font-weight: 900;
+          margin: 0;
+        }
+
+        h2 {
+          font-size: 90px;
+          font-weight: 700;
+          margin: 10px 0 5px;
+        }
+
+        .emoji {
+          font-size: 28px;
+          margin-bottom: 25px;
+        }
       }
-  
+
+      ol {
+        padding-left: 20px;
+        font-size: 15px;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        width: 400px;
+        li {
+          font-size: 24px;
+          line-height: 1;
+          margin-bottom: 20px;
+
+          .highlight {
+            font-weight: 600;
+            color: #000;
+          }
+        }
+      }
+
+      .logos {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 25px;
+
+        img {
+          height: 35px;
+          width: auto;
+        }
+      }
+
       button {
         background-color: #e63946;
         color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 12px 24px;
+        font-size: 15px;
         font-weight: bold;
-        border-radius: 5px;
+        border: none;
+        border-radius: 6px;
         cursor: pointer;
-        margin-bottom: 20px;
-      }
-  
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-  
-      li {
-        margin-bottom: 10px;
-        font-size: 16px;
-  
-        span {
-          margin-left: 10px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #d62839;
         }
       }
     }
   }
+}
+
+
+
+
+    .swiper-button-prev, .swiper-button-next { 
+      width: 40px; 
+      height: 40px; 
+      background: rgba(0, 0, 0, 0.5); 
+      color: #fff !important;
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      // cursor: pointer; 
+    }
+    // .swiper-button-prev { left: 10px; }
+    // .swiper-button-next { right: 10px; }
+    // .chevron { 
+    //   display: inline-block; 
+    //   width: 20px; 
+    //   height: 20px; 
+    //   border: 2px solid white; 
+    //   border-width: 2px 2px 0 0; 
+    // }
+    // .chevron-left { 
+    //   margin-left: 10px;
+    //   transform: rotate(-135deg); 
+    // }
+    // .chevron-right { 
+    //   margin-right: 10px;
+    //   transform: rotate(45deg); 
+    // }
+    .swiper-button-prev:hover, .swiper-button-next:hover { 
+      background: rgba(225, 17, 17, 0.8);       color: #fff !important;
+
+    }
   
+    .swiper-button-next::after {
+      content: '\203A';
+      margin-bottom: 15px;
+      margin-left: 2px;
+      font-size: 50px;
+      color: white;
+    }
+    
+    .swiper-button-prev::after {
+      content: '\2039';
+      font-size: 50px;
+      margin-bottom: 15px;
+      margin-right: 6px;
+      color: white;
+    }
