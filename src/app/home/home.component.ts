@@ -54,6 +54,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         },
       },
     });
+    setTimeout(() => {
+      this.animateSlideText(swiper);
+    }, 0);
   }
 
   ngOnDestroy() {
