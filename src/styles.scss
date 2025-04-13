@@ -17,3 +17,28 @@ body{
     font-weight: 700;
     
 }
+
+
+@keyframes jump {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    40% {
+        transform: translateY(-15px); /* Reduced peak of the jump */
+    }
+    50% {
+        transform: translateY(0); /* Back to ground */
+    }
+    55% {
+        transform: translateY(3px); /* Smaller overshoot downward */
+    }
+    65% {
+        transform: translateY(-5px); /* Smaller rebound bounce */
+    }
+    75% {
+        transform: translateY(0); /* Settle back to ground */
+    }
+    100% {
+        transform: translateY(0); /* Ready for next cycle */
+    }
+}
