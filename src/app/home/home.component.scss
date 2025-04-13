@@ -407,3 +407,73 @@
       margin-right: 6px;
       color: white;
     }
+
+
+    .thirdContainer{
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        background-color: #1a1a1a; /* Dark background */
+        color: #ff0000; /* Red text (corrected from your comment where you mentioned "White text" but used #ff0000) */
+        border: 2px solid #ff0000; /* Red border */
+        border-radius: 30px; /* Rounded edges */
+        padding: 10px 30px; /* Padding for size */
+        width: 250px;
+        height: 60px;
+        margin: 0 auto;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        cursor: pointer;
+        display: block; /* Ensures margin: 0 auto works for centering */
+        transition: background-color 0.6s ease, color 0.6s ease, border-radius 0.4s ease; /* Transition for all changing properties */
+    }
+    
+    /* Hover state: fully red background, black text */
+    button:hover {
+        border-radius: 15px; /* Reduced radius on hover */
+        background-color: #ff0000; /* Red background */
+        color: #000000; /* Black text */
+    }
+      img{
+        border-radius: 15px;
+        width: 320px;
+        height: 200px;
+        margin-bottom: 50px;
+      }
+      .firstPart{
+          padding: 60px 10px;
+          background-color: #810000;
+          display: flex;
+          flex-direction: column;
+          width: 33.3%;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        .secondPart{
+        padding: 60px 10px;
+        background-color: #810000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 33.3%;
+
+      }
+      
+      .thirdPart{
+        padding: 60px 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #810000;
+        display: flex;
+        flex-direction: column;
+        width: 33.3%;
+
+
+      }
+
+    }

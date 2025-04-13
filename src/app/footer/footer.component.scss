@@ -1,0 +1,47 @@
+.footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #000 !important;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff; 
+}
+
+.footer .firstPart {
+    width: 30%;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.5; 
+    font-weight: 400;
+}
+
+.footer .firstPart a {
+    text-decoration: none;
+}
+
+.footer .firstPart br {
+    margin-bottom: 5px; 
+}
+
+.footer .secondPart {
+    padding-top: 25px;
+    width: 30%;
+}
+
+.footer .secondPart .socials {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.footer .secondPart .socials .social-icon {
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%; 
+    padding: 5px;
+    box-sizing: border-box;
+}
