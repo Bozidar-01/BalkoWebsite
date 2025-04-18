@@ -13,14 +13,18 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';Swiper.use([Na
 export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   private swiper: Swiper | undefined;
+  @ViewChild('secondContainer', { static: false }) secondContainer!: ElementRef;
+  private observer: IntersectionObserver | undefined;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeSwiper();
+      this.animateSecondContainerOnView(); // use this instead
     }
   }
+  
 
   private initializeSwiper(attempts = 0, maxAttempts = 5) {
     const container = this.swiperContainer?.nativeElement;
@@ -82,4 +86,37 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       activeText.classList.add('animate-in');
     }
   }
+
+
+  private animateSecondContainerOnView() {
+    setTimeout(() => {
+
+    if (!this.secondContainer) return;
+  
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const animatedItems = this.secondContainer.nativeElement.querySelectorAll('.animate-item');
+          animatedItems.forEach((el: Element, index: number) => {
+            setTimeout(() => {
+              el.classList.add('animate-in');
+            }, 200 * index);
+          });
+  
+          // Optional: Stop observing after first animation
+          if (this.observer) {
+            this.observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, {
+      threshold: 0.3 // how much of element needs to be in view
+    });
+  
+    this.observer.observe(this.secondContainer.nativeElement);
+  }, 200 );
+
+  }
+  
+  
 }
