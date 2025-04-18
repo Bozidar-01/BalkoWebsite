@@ -46,7 +46,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     const swiper = new Swiper(container, {
       loop: true,
       autoplay: {
-        delay: 3000, // Adjust this value (in milliseconds) to change speed (e.g., 3000 = 3 seconds)
+        delay: 5000, // Adjust this value (in milliseconds) to change speed (e.g., 3000 = 3 seconds)
         disableOnInteraction: false, // Optional: Keeps autoplay running after user interaction
       },
       navigation: {
