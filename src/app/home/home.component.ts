@@ -1,7 +1,8 @@
 import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, PLATFORM_ID, Inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';Swiper.use([Navigation, Pagination, Autoplay]);
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -15,8 +16,12 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private swiper: Swiper | undefined;
   @ViewChild('secondContainer', { static: false }) secondContainer!: ElementRef;
   private observer: IntersectionObserver | undefined;
+  safeUrl: SafeResourceUrl;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer) {
+    const url = 'https://www.facebook.com/people/BALKO-Brand/61562417596105/';
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {

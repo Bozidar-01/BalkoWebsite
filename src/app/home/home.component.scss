@@ -565,3 +565,36 @@
     transform: translateY(-10px);
   }
 }
+
+
+.fourthContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.phone-wrapper {
+  position: relative;
+  width: 550px; /* Adjust based on your phone image size */
+}
+
+.phone-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.fb-wrapper {
+  position: absolute;
+  top: 90px;  /* Adjust to align with the phone screen */
+  left: 103.5px;
+  width: 400px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fb-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
