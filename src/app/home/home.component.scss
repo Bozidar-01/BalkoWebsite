@@ -571,12 +571,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 
 .phone-wrapper {
   position: relative;
   width: 550px; /* Adjust based on your phone image size */
+  @media (max-width: 768px) {
+    display: none;
+      }
+    
+      @media (max-width: 480px) {
+        display: none;
+      }
 }
 
 .phone-wrapper img {
@@ -598,3 +606,23 @@
   height: 100%;
   border: none;
 }
+
+.mobilePhone{
+  width: 0;
+  height: 0;
+opacity: 0;
+  @media (max-width: 768px) {
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+      }
+    
+      @media (max-width: 480px) {
+        opacity: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
+
+      }
+}
+
+
