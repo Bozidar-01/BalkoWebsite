@@ -2,46 +2,98 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background: #000 !important;
-    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    color: #fff; 
-}
+    color: #fff;
 
-.footer .firstPart {
-    width: 30%;
-    margin: 0 auto;
-    font-size: 12px;
-    line-height: 1.5; 
-    font-weight: 400;
-}
+    .firstPart {
+        width: 30%;
+        margin: 0 auto;
+        font-size: 12px;
+        line-height: 1.5;
+        font-weight: 400;
 
-.footer .firstPart a {
-    text-decoration: none;
-}
+        a {
+            text-decoration: none;
+        }
 
-.footer .firstPart br {
-    margin-bottom: 5px; 
-}
+        br {
+            margin-bottom: 5px;
+        }
+    }
 
-.footer .secondPart {
-    padding-top: 25px;
-    width: 30%;
-}
+    .secondPart {
+        padding-top: 25px;
+        width: 30%;
 
-.footer .secondPart .socials {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
-}
+        .socials {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
 
-.footer .secondPart .socials .social-icon {
-    width: 45px; 
-    height: 45px;
-    border-radius: 50%; 
-    padding: 5px;
-    box-sizing: border-box;
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+        }
+    }
+
+    /* Mobile View Adjustments */
+    @media (max-width: 768px) {
+        flex-direction: column; /* Stack parts vertically */
+        align-items: center;
+        padding: 15px 10px;
+
+        .firstPart {
+            width: 90%; /* Full width with margin */
+            margin: 0;
+            font-size: 11px;
+            text-align: center; /* Center text for better mobile display */
+        }
+
+        .secondPart {
+            width: 90%;
+            padding-top: 15px;
+
+            .socials {
+                gap: 10px;
+                justify-content: center;
+
+                .social-icon {
+                    width: 35px;
+                    height: 35px;
+                    padding: 4px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px 10px;
+
+        .firstPart {
+            font-size: 10px;
+            line-height: 1.4;
+        }
+
+        .secondPart {
+            padding-top: 10px;
+
+            .socials {
+                gap: 8px;
+
+                .social-icon {
+                    width: 30px;
+                    height: 30px;
+                    padding: 3px;
+                }
+            }
+        }
+    }
 }

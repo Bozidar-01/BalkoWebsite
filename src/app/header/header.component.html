@@ -1,24 +1,26 @@
 <header>
-    <!-- Top Bar -->
-    <div class="top-bar">
-      <div class="logo">
-        <a routerLink="/">
-          <img style="width: 10%;" src="balko.jpg" alt="Balko logo" />
-        </a>
-      </div>
-
-      <!-- Hamburger Button (Visible in Mobile) -->
-      <button class="hamburger" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="logo">
+      <a routerLink="/">
+        <img src="balko.jpg" alt="Balko logo" />
+      </a>
     </div>
-  
-    <!-- Bottom Bar (Navigation) -->
-    <nav class="bottom-bar" [ngClass]="{'show': isMenuOpen}">
+
+    <!-- Hamburger Button (Visible in Mobile) -->
+    <button class="hamburger" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Side Menu (Navigation) -->
+  <div class="nav-menu" [ngClass]="{'show': isMenuOpen}">
+    <nav class="bottom-bar">
       <a routerLink="/" routerLinkActive="active" (click)="toggleMenu()">Home</a>
       <a routerLink="/about" routerLinkActive="active" (click)="toggleMenu()">About Us</a>
       <a routerLink="/contact" routerLinkActive="active" (click)="toggleMenu()">Contact</a>
     </nav>
-  </header>
+  </div>
+</header>
