@@ -15,6 +15,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
   private swiper: Swiper | undefined;
   @ViewChild('secondContainer', { static: false }) secondContainer!: ElementRef;
+  @ViewChild('fourthContainer', { static: false }) fourthContainer!: ElementRef;
+  @ViewChild('thirdContainer', { static: true }) thirdContainer!: ElementRef;
+
   private observer: IntersectionObserver | undefined;
   safeUrl: SafeResourceUrl;
 
@@ -26,7 +29,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeSwiper();
-      this.animateSecondContainerOnView(); // use this instead
+      this.animateSecondContainerOnView(); 
+      this.animateThirdContainerOnView(); 
+      this.animatefourthContainerOnView(); 
     }
   }
   
@@ -121,6 +126,61 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.observer.observe(this.secondContainer.nativeElement);
   }, 200 );
 
+  }
+
+  private animateThirdContainerOnView() {
+    setTimeout(() => {
+      if (!this.thirdContainer) return;
+  
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const parts = this.thirdContainer.nativeElement.querySelectorAll('.offer-part');
+            parts.forEach((el: Element, index: number) => {
+              setTimeout(() => {
+                el.classList.add('animate');
+              }, 300 * index); // Staggered
+            });
+  
+            if (this.observer) {
+              this.observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+  
+      this.observer.observe(this.thirdContainer.nativeElement);
+    }, 200);
+  }
+  
+  
+
+  private animatefourthContainerOnView() {
+    setTimeout(() => {
+      if (!this.fourthContainer) return;
+  
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const animatedItems = this.fourthContainer.nativeElement.querySelectorAll('.phoneBounceIn');
+            animatedItems.forEach((el: Element, index: number) => {
+              setTimeout(() => {
+                el.classList.add('animate');
+              }, 200 * index);
+            });
+  
+            // Unobserve after animating once
+            if (this.observer) {
+              this.observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, {
+        threshold: 0.3,
+      });
+  
+      this.observer.observe(this.fourthContainer.nativeElement);
+    }, 200);
   }
   
   
