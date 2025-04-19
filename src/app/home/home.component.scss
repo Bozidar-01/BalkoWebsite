@@ -573,6 +573,7 @@
 
 
 .fourthContainer {
+  background: #181a1b !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -751,23 +752,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animated-offer {
-  opacity: 0;
-  animation: fadeUpIn 0.8s ease-out forwards;
-}
-
-.thirdContainer .firstPart img{
-  animation-delay: 0.2s;
-}
-
-.thirdContainer .secondPart img{
-  animation-delay: 0.5s;
-}
-
-.thirdContainer .thirdPart img{
-  animation-delay: 0.8s;
 }
 
 @keyframes fadeUpIn {
