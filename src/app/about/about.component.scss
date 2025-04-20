@@ -8,26 +8,23 @@
       align-items: center;
       justify-content: center;
       background: #000 !important;
-      gap: 2rem;
+    //   gap: 2rem;
       margin-bottom: 0;
   
       .text {
         flex: 1;
   
         h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-          color: #0f172a;
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+          color: #fff !important;
         }
   
-        p {
-          font-size: 1rem;
-          color: #475569;
-        }
+
       }
   
       .image {
-        padding-top: 30px;
+        // padding-top: 30px;
         flex: 0.5;
         @media (max-width: 768px) {
             display: none;
@@ -57,7 +54,7 @@
         background: url('/aboutUs.png') no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
-        opacity: 0.25;
+        opacity: 0.15;
         z-index: -1;
       }
   
