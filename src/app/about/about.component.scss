@@ -46,7 +46,9 @@
       color: #fff;
       overflow: hidden;
       height: 60vh;
-  
+      @media (max-width: 768px) {
+        height:auto !important;
+    }
       &::before {
         content: '';
         position: absolute;
@@ -95,21 +97,21 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 10rem;
+        background: #ee3465ad !important;
         padding: 3rem 1rem;
-        margin-bottom: 4rem;
         @media (max-width: 768px) {
             gap: 2rem;
         }
         .card {
           flex: 1 1 280px;
-          max-width: 600px;
+          max-width: 700px;
 
           @media (max-width: 768px) {
             max-width: 400px;
         }
-          background: #1e293b;
+          background: #3445EE ;
           border-radius: 16px;
-          padding: 2rem 1.5rem;
+          padding: 5rem 1.5rem;
           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
       
@@ -379,30 +381,32 @@
     z-index: 1;
     box-shadow: 0 0 15px #ff2c2c, 0 0 30px #ff2c2c;
   }
-  
 
-  body {
-    font-family: 'Source Sans Pro',Helvetica Neue,Helvetica,Arial,sans-serif; 
-    font-size: 16px;
-    line-height: 1.75;
-  }
   
   #timeline {
     display: flex;
-    background-color: #255981;
-  
+    background-color: #64162b;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
     &:hover {
       .tl-item {
         width: 33.3333%;
+        @media (max-width: 768px) {
+            width:100vw !important;
+        }
       }
     }
   }
   
   .tl-item {
+    @media (max-width: 768px) {
+        width:100vw !important;
+    }
     transform: translate3d(0, 0, 0);
     position: relative;
     width: 33.35%;
-    height: 100vh;
+    height: 80vh;
     min-height: 600px;
     color: #fff;
     overflow: hidden;
@@ -417,7 +421,7 @@
     }
   
     &:after {
-      background: transparentize(#031625, 0.15);
+      background: transparentize(#ee3466, 0.5);
       opacity: 1;
       transition: opacity 0.5s ease;
     }
@@ -467,7 +471,7 @@
     h1 {
       font-family: 'Pathway Gothic One',Helvetica Neue,Helvetica,Arial,sans-serif;
       text-transform: uppercase;
-      color: #1779cf;
+      color: #ee3465ad;
       font-size: 1.44rem;
       font-weight: normal;
     }
@@ -484,7 +488,7 @@
     
     p {
       font-family: 'Pathway Gothic One',Helvetica Neue,Helvetica,Arial,sans-serif;
-      font-size: 1.728rem;
+      font-size: 3rem;
       line-height: 0;
     }
   }
