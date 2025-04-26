@@ -2,18 +2,17 @@
     background: linear-gradient(to bottom right, #f3f4f6, #ffffff) !important;
   
     .intro {
-      padding: 1rem 31vw;
+      padding: 1rem 0;
       display: flex;
+      width: 100%;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: center !important;
       background: #000 !important;
     //   gap: 2rem;
       margin-bottom: 0;
   
-      .text {
-        flex: 1;
-  
+      .text {  
         h1 {
           font-size: 3rem;
           margin-bottom: 1.5rem;
@@ -45,7 +44,7 @@
       z-index: 1;
       color: #fff;
       overflow: hidden;
-      height: 60vh;
+      height: 65vh;
       @media (max-width: 768px) {
         height:auto !important;
     }
@@ -56,25 +55,44 @@
         background: url('/aboutUs.png') no-repeat center center;
         background-size: cover;
         background-attachment: fixed;
-        opacity: 0.15;
+        opacity: 1;
         z-index: -1;
       }
   
       h2 {
+        margin-top:100px;
         text-align: center;
         font-size: 2rem;
         margin-bottom: 2rem;
+        color: #fff;
       }
   
       .info-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          );
+          z-index: -1;
+          pointer-events: none;
+          color: #000 !important;
+        }
   
         .text-content {
           max-width: 800px;
   
           p {
+            color: #fff;
             text-align: justify;
             line-height: 1.8;
             margin-bottom: 1.5rem;
@@ -86,32 +104,31 @@
             margin: 0 1rem 1rem 0;
             width: 120px;
             height: auto;
-            border-radius: 8px;
           }
         }
       }
     }
   
-    .grid-cards {
+    .gridcards {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10rem;
-        background: #ee3465ad !important;
+        gap: 5rem;
+        background: #a92548 !important;
+        
         padding: 3rem 1rem;
         @media (max-width: 768px) {
             gap: 2rem;
         }
         .card {
           flex: 1 1 280px;
-          max-width: 700px;
+          max-width: 28%;
+          // height: 450px;
 
           @media (max-width: 768px) {
             max-width: 400px;
         }
-          background: #4B1E3C;
-          border-radius: 16px;
-          padding: 5rem 1.5rem;
+          border-radius: 15px;
           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
       
@@ -220,7 +237,7 @@
         }
       }
   
-      .grid-cards {
+      .gridcards {
         padding: 2rem 1rem;
   
         .card {
@@ -392,6 +409,7 @@
     &:hover {
       .tl-item {
         width: 33.3333%;
+        
         @media (max-width: 768px) {
             width:100vw !important;
         }
@@ -401,7 +419,10 @@
   
   .tl-item {
     @media (max-width: 768px) {
+      font-size: 14px;
         width:100vw !important;
+        height: 850px;
+
     }
     transform: translate3d(0, 0, 0);
     position: relative;
@@ -504,4 +525,56 @@
     filter: grayscale(100%);
   }
   
+  .animate-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-in-out;
+  }
+  .button {
+    margin-top: 10px;
+    background-color: #e63946;
+    color: white;
+    padding: 12px 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #d62839;
+    }
+  }
+
+  @keyframes fadeUpIn {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeUpIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
   
+  .card.animate {
+    animation: fadeUpIn 0.6s ease-out forwards;
+  }
