@@ -175,6 +175,7 @@ body{
   
     &.animate-in {
       animation: slideInUp 0.8s ease forwards;
+      opacity: 1;
     }
   
     h2 {

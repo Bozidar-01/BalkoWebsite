@@ -27,20 +27,28 @@
 
 
 <section class="intro">
-    <div class="text">
-      <h1 style="font-size: 6rem; padding-bottom: 40px;">Локации <b style="color: red;">:</b></h1>
-    </div>
+  <div class="text">
+    <h1>Локации</h1>
+  </div>
 
-    <div class="text">
-        <dotlottie-player src="https://lottie.host/1169e4da-0f9a-484b-b7e5-e937a77c465e/gIglIbifhe.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
-    </div>
+  <div class="animation">
+    <dotlottie-player
+      src="https://lottie.host/1169e4da-0f9a-484b-b7e5-e937a77c465e/gIglIbifhe.lottie"
+      background="transparent"
+      speed="1"
+      loop
+      autoplay
+    ></dotlottie-player>
+  </div>
 
-    
-    <div class="text">
-        <h1 style="font-size: 4rem;"> <b style="color: #FF0000; font-weight: normal; margin-right: 15px;"> 17 маркети </b> низ регионот</h1>
-    </div>
+  <div class="text sub-heading" style="padding-bottom: 15px;">
+    <h1><b>17 маркети</b> низ регионот</h1>
+    <p>
+      Пронајдете го најблискиот Балко маркет до вас и уживајте во пазарењето
+    </p>
+  </div>
+</section>
 
-  </section>
 
 
 
@@ -51,7 +59,7 @@
             <div style="font-size: 36px;">
                 {{ market.name }} 
             </div>
-            <div style="font-size: 22px;">
+            <div style="font-size: 22px; text-transform: lowercase;">
               {{market.location}}
             </div>
             <div style="font-size: 28px;">

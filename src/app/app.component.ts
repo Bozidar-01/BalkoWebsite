@@ -4,7 +4,7 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs';
-
+import 'animate.css';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, HeaderComponent, FooterComponent],

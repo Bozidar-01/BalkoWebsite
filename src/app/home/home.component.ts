@@ -64,7 +64,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       },
       on: {
         slideChangeTransitionEnd: () => {
-          this.animateSlideText(swiper);
+          setTimeout(() => {
+            this.animateSlideText(swiper);
+          }, 200);
         },
       },
     });
