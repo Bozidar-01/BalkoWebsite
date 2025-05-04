@@ -13,7 +13,7 @@
   /* Intro Section */
   .intro {
     box-sizing: border-box;
-    width: 80%;
+    width: 83%;
     padding: 1rem;
     margin: 0 auto;
     display: flex;
@@ -31,7 +31,7 @@
   }
   
   .intro .text h1 {
-    font-size: clamp(1rem, 6vw, 3rem);
+    font-size: clamp(3rem, 6vw, 6rem);
     margin-bottom: 1rem;
     margin-top: 1rem;
     text-transform: uppercase;
@@ -40,7 +40,7 @@
   }
   
   .intro .text.sub-heading h1 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1rem, 4vw, 1.8rem);
     text-transform: none;
     font-weight: normal;
   }
