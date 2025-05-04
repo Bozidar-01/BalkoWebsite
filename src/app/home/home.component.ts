@@ -1,12 +1,12 @@
 import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, PLATFORM_ID, Inject, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -21,6 +21,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | undefined;
   safeUrl: SafeResourceUrl;
 
+  modalOpen = false;
+  selectedTitle = '';
+  selectedImg = '';
   constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer) {
     const url = 'https://www.facebook.com/people/BALKO-Brand/61562417596105/';
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -35,6 +38,17 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     }
   }
   
+  openModal(title: string, img: string) {
+    this.selectedTitle = title;
+    this.selectedImg = img;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+  }
+
+
 
   private initializeSwiper(attempts = 0, maxAttempts = 5) {
     const container = this.swiperContainer?.nativeElement;

@@ -86,22 +86,31 @@
   <div class="firstPart">
     <img  src="nedelnaPonuda.jpg" alt="Mastercard logo" class="offer-part" />
 
-    <button>Прелистај</button>
+    <button (click)="openModal('Неделна Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
 
   <div class="secondPart">
     <img  src="superPonuda.jpg" alt="Mastercard logo" class="offer-part" />
 
-    <button>Прелистај</button>
+    <button (click)="openModal('Супер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
 
   <div class="thirdPart">
     <img  src="flaerPonuda.jpg" alt="Mastercard logo" class="offer-part" />
 
-    <button>Прелистај</button>
+    <button (click)="openModal('Флаер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
 </div>
 
+    <!-- Modal -->
+    <div class="modal" *ngIf="modalOpen">
+      <div class="modal-content">
+        <span class="close-btn" (click)="closeModal()">×</span>
+        <h3>{{ selectedTitle }}</h3>
+        <img [src]="selectedImg" alt="Job Image" />
+        <!-- <button class="apply-btn">ПРИЈАВИ СЕ</button> -->
+      </div>
+    </div>
 
 <div class="fourthContainer "   #fourthContainer>
 

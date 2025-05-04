@@ -1,0 +1,238 @@
+/* Intro Section */
+.intro {
+    box-sizing: border-box;
+    width: 83%;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #181a1b;
+    overflow: hidden;
+  }
+  
+  .intro .text {
+    flex: 1 1 100%;
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .intro .text h1 {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #fff;
+  }
+  
+  .intro .text.sub-heading h1 {
+    font-size: clamp(0.9rem, 4vw, 1.8rem);
+    text-transform: none;
+    font-weight: normal;
+  }
+  
+  .intro .text p {
+    font-size: clamp(0.7rem, 3.5vw, 0.9rem);
+    color: #fff;
+    font-weight: 300;
+    text-align: left;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+  
+  .intro .animation {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .intro dotlottie-player {
+    width: clamp(120px, 20vw, 200px);
+    height: clamp(120px, 20vw, 200px);
+  }
+  
+  .contact-info {
+    z-index: 1;
+    color: white;
+    text-align: center;
+  }
+  
+  .contact-info h3 {
+    font-size: clamp(1.5em, 2.5vw, 2.5em);
+    margin: 10px 0 5px;
+    color: #ea1c25;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+    font-size: clamp(0.8em, 1.5vw, 1em);
+    color: #000;
+  }
+  
+  .animation {
+    margin: 20px 0;
+    z-index: 1;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    align-items: center; /* Ensure children stretch to container height */
+    background: #fff;
+    padding: 0 !important;
+    
+    min-height: 400px; /* Ensure container has a minimum height */
+  }
+  
+  .container .col {
+    width: 50%;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+  
+  .container .img {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%; /* Take full height of the parent (.col) */
+    flex-grow: 1;
+  }
+  
+  .container .img img {
+    width: 100%;
+    height: 100%; /* Take full height of the parent (.img) */
+    display: block;
+    object-fit: cover; /* Ensure image covers the area, may crop */
+  }
+  
+  /* Responsive Styles */
+  
+ 
+  
+  /* Tablets (768px and below) */
+  @media (max-width: 768px) {
+    .intro {
+      flex-wrap: wrap;
+      width: 95%;
+    }
+  
+    .intro .text {
+      flex: 1 1 100%;
+    }
+  
+    .intro .animation {
+      margin-top: 1rem;
+    }
+  
+    .intro .text h1 {
+      font-size: clamp(1.8rem, 4.5vw, 4rem);
+    }
+  
+    .intro .text.sub-heading h1 {
+      font-size: clamp(0.7rem, 3vw, 1.4rem);
+    }
+  
+    .intro .text p {
+      font-size: clamp(0.6rem, 3vw, 0.8rem);
+      max-width: 350px;
+    }
+  
+    .container {
+      flex-direction: column;
+      min-height: auto; /* Let content define height */
+    }
+  
+    .container .col {
+      width: 100%;
+      min-height: 250px; /* Ensure column has height for image */
+    }
+  
+    .container .img {
+      height: 100%; /* Ensure full height */
+    }
+  
+    .container .img img {
+      height: 100%; /* Ensure full height */
+    }
+  
+    .contact-info {
+      width: 90%;
+      margin: 1rem auto;
+    }
+  }
+  
+  /* Mobile Devices (480px and below) */
+  @media (max-width: 480px) {
+    .intro {
+      width: 100%;
+    }
+  
+    .intro .text h1 {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+  
+    .intro .text.sub-heading h1 {
+      font-size: clamp(0.6rem, 2.5vw, 1.2rem);
+    }
+  
+    .intro .text p {
+      font-size: clamp(0.5rem, 2.5vw, 0.7rem);
+      max-width: 280px;
+    }
+  
+    .intro dotlottie-player {
+      width: clamp(100px, 18vw, 150px);
+      height: clamp(100px, 18vw, 150px);
+    }
+  
+    .container .col {
+      min-height: 200px; /* Adjust for smaller screens */
+    }
+  
+    .contact-info {
+      width: 95%;
+    }
+  
+    .contact-info h3 {
+      font-size: clamp(1.2em, 2vw, 1.8em);
+    }
+  
+    .contact-info p {
+      font-size: clamp(1em, 1.2vw, 0.9em);
+    }
+  }
+  
+  /* Very Small Devices (360px and below) */
+  @media (max-width: 360px) {
+    .intro .text h1 {
+      font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+    }
+  
+    .intro .text.sub-heading h1 {
+      font-size: clamp(0.5rem, 2vw, 1rem);
+    }
+  
+    .intro .text p {
+      font-size: clamp(0.5rem, 2vw, 0.65rem);
+      max-width: 240px;
+    }
+  
+    .container .col {
+      min-height: 150px; /* Adjust for very small screens */
+    }
+  
+    .contact-info h3 {
+      font-size: clamp(1em, 1.8vw, 1.5em);
+    }
+  
+    .contact-info p {
+      font-size: clamp(0.6em, 1vw, 0.8em);
+    }
+  }
