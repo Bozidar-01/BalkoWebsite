@@ -163,23 +163,18 @@ body{
   
   .slide-text {
     width: 630px;
-  position: absolute;
-  top: 50% !important;
-  left: 30% !important; // changed from 30% to 50%
-  transform: translate(-50%, -50%) ; // simplified vertical alignment
-  color: white;
-  text-align: start; // more consistent on all screen sizes
-  z-index: 999999;
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s !important;
-  @media (max-width: 480px) {
-    top: 50% !important;
-    left: 50% !important; // changed from 30% to 50%
-    transform: translate(-50%, -50%) !important; // simplified vertical alignment  
-  }
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -70%);
+    color: white;
+    text-align: start;
+    z-index: 999999;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  
     &.animate-in {
       animation: slideInUp 0.8s ease forwards;
-      opacity: 1 !important;
     }
   
     h2 {
@@ -216,11 +211,11 @@ body{
   
   @keyframes slideInUp {
     0% {
-      opacity: 0 !important;
-      transform: translate(-50%, 30%) !important;
+      opacity: 0;
+      transform: translate(-50%, 30%);
     }
     100% {
-      opacity: 1 !important;
-      transform: translate(-50%, -50%) !important;
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
   }
