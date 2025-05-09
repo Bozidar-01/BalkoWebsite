@@ -10,7 +10,7 @@
         <img src="marketi/3.jpg" alt="">
       </div>
       <div class="swiper-slide">
-        <img src="marketi/6.jpg" alt="">
+        <img src="marketi/4.jpg" alt="">
       </div>
     </div>
 
@@ -57,19 +57,19 @@
     <div class="firstPart offer-part" *ngFor="let market of markets">
         <h1 class="offer-part">
             <div style="font-size: 36px;">
-                {{ market.name }} 
+                {{ market.name }}
             </div>
             <div style="font-size: 22px; text-transform: lowercase;">
               {{market.location}}
             </div>
             <div style="font-size: 28px;">
-                {{market.city}} 
+                {{market.city}}
           </div>
         </h1>
         <a style="text-decoration: none; color: #fff !important;" [href]="market.link">
         <button>Прикажи на мапа</button>
         </a>
       </div>
-      
-  
+
+
   </div>
