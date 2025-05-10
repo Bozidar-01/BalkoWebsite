@@ -1,19 +1,19 @@
 <div class="swiper" #swiperContainer>
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <img src="baner1.jpg" alt="">
+      <img src="doma/baner1.jpg" alt="">
       <div class="slide-text">
         <h2>Секоја недела нови акции и супер цени!</h2>
       </div>
     </div>
     <div class="swiper-slide">
-      <img src="baner2.jpg" alt="Slide 2">
+      <img src="doma/baner2.jpg" alt="Slide 2">
       <div class="slide-text">
         <h2>СЕКОЈ ДЕН СВЕЖО ОВОШЈЕ И ЗЕЛЕНЧУК</h2>
       </div>
     </div>
     <div class="swiper-slide">
-      <img src="baner3.jpg" alt="Slide 3">
+      <img src="doma/baner3.jpg" alt="Slide 3">
       <div class="slide-text">
         <h2> Сѐ на едно место богат избор на производи!</h2>
       </div>
@@ -38,7 +38,7 @@
 <div
   class="secondContainer"
   #secondContainer
-  style="background: url('/second.jpg') no-repeat center center !important; background-size: cover !important; width: 100vw !important; height: 60vh !important;"
+  style="background: url('/doma/second.jpg') no-repeat center center !important; background-size: cover !important; width: 100vw !important; height: 60vh !important;"
 >
   <div class="promo-content">
     <div class="flexDiv">
@@ -60,15 +60,19 @@
         </ol>
 
         <div class="logos animate-item">
-          <img style="width:120px;" src="qr1.png" alt="Mastercard logo" />
+          <img style="width:120px;" src="doma/qr1.png" alt="qr" />
           <div style="border-right: 1px solid black; height: 130px;"></div>
-          <img style="width:120px;" src="qr2.png" alt="Balko logo" />
+          <img style="width:120px;" src="doma/qr2.png" alt="qr" />
+
         </div>
+             <div  class="plyr">
+            <dotlottie-player src="https://lottie.host/b145b3ac-0991-4919-a6b7-a3f2ba4bc88a/asBvjaABNu.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+          </div>
       </div>
 
       <div class="secondPart">
         <!-- <img class="cart" src="cart.avif" alt="Cart image" /> -->
-        <img class="personImg animate-item" src="woman.jpg" alt="Person image" />
+        <img class="personImg animate-item" src="doma/woman.jpg" alt="Person image" />
         <a style="text-decoration: none; color: #fff !important;" href="https://www.myworld.com/mk/cashback/mk-mk/36303450-balko-marketi-balko-kompani?utm_source=search">
         <button class="animate-item" >
           ДОЗНАЈ ПОВЕЌЕ
@@ -82,21 +86,22 @@
 
 
 <div class="thirdContainer" #thirdContainer>
-
+  
+  
   <div class="firstPart">
-    <img  src="nedelnaPonuda.jpg" alt="Mastercard logo" class="offer-part" />
-
+    <img  src="doma/nedelnaPonuda.jpg" alt="img" class="offer-part" />
+    
     <button (click)="openModal('Неделна Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
-
+  
   <div class="secondPart">
-    <img  src="superPonuda.jpg" alt="Mastercard logo" class="offer-part" />
+    <img  src="doma/superPonuda.jpg" alt="img" class="offer-part" />
 
     <button (click)="openModal('Супер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
 
   <div class="thirdPart">
-    <img  src="flaerPonuda.jpg" alt="Mastercard logo" class="offer-part" />
+    <img  src="doma/flaerPonuda.jpg" alt="img" class="offer-part" />
 
     <button (click)="openModal('Флаер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
   </div>
@@ -118,17 +123,17 @@
     <div class="fb-wrapper">
       <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbalkomarketi2&tabs=timeline&width=345&height=610&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="345" height="620" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
   </div>
-  <img src="phone.png" alt="Phone" />
+  <img src="doma/phone.png" alt="Phone" />
 </div>
 
-<img class="mobilePhone phoneBounceIn" src="mobileView.png" alt="Phone" />
+<img class="mobilePhone phoneBounceIn" src="doma/mobileView.png" alt="Phone" />
 
   <div class="secondPart phoneBounceIn">
-    <h2 style="font-size: 52px; padding-bottom: 0; margin-bottom: 0; color: #ff0217;">
+    <h2 style="font-size: 52px; padding-bottom: 0; margin-bottom: 0; color: #d63054;">
       Следете нѐ на нашите социјални мрежи
     </h2>
 
-    <p style="font-size: 24px; padding-top: 0; margin-top: 10px; display: flex; margin-bottom: 0 ;">
+    <p style="font-size: 24px; padding-top: 0; margin-top: 10px; display: flex; margin-bottom: 0; color: #000;">
       И бидете први <br> што ќе дознаат за <br> најдобрите акции!
       <!-- <img style=" width: 40%; margin-top: 10px;" src="like_outline.png" alt="Phone" class="like-button-pop" /> -->
       <dotlottie-player src="https://lottie.host/4e68b9d8-a4c4-4310-ac91-3a51715d581b/QzHsV649Hj.lottie" background="transparent" speed="0.7" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
@@ -137,10 +142,10 @@
 
     <div class="socials">
       <a href="https://www.instagram.com/balkomarketi/" target="_blank">
-          <img src="instagram-icon.jpg" alt="Instagram" class="social-icon" />
+          <img src="doma/instagram-icon.png" alt="Instagram" class="social-icon" />
       </a>
       <a href="https://www.facebook.com/balkomarketi/" target="_blank">
-          <img src="facebook-icon.png" alt="Facebook" class="social-icon" />
+          <img src="doma/facebook-icon.png" alt="Facebook" class="social-icon" />
       </a>
 
   </div>
