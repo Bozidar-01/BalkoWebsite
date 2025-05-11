@@ -2,7 +2,7 @@ import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { filter } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
@@ -23,6 +23,7 @@ export class AppComponent {
     private titleService: Title,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private metaService: Meta,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -35,22 +36,28 @@ export class AppComponent {
     }
   }
 
-  ngOnInit(): void {
-    if (this.isBrowser) {
-      this.router.events
-        .pipe(filter(event => event instanceof NavigationEnd))
-        .subscribe(() => {
-          const child = this.getChild(this.activatedRoute);
-          const routeTitle = child.snapshot.data['title'];
-          if (routeTitle) {
-            this.titleService.setTitle(routeTitle);
-            this.scrollToTop();
-          }
-        });
+ngOnInit(): void {
+  if (this.isBrowser) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const child = this.getChild(this.activatedRoute);
+        const routeTitle = child.snapshot.data['title'];
+        const routeDesc = child.snapshot.data['description']; 
 
-      this.onWindowScroll(); // Call only if in browser
-    }
+        if (routeTitle) {
+          this.titleService.setTitle(routeTitle);
+        }
+        if (routeDesc) {
+          this.metaService.updateTag({ name: 'description', content: routeDesc });
+        }
+
+        this.scrollToTop();
+      });
+
+    this.onWindowScroll();
   }
+}
 
   getChild(route: ActivatedRoute): ActivatedRoute {
     let child = route.firstChild;
