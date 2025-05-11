@@ -1,7 +1,6 @@
 /* Intro Section */
 .intro {
     box-sizing: border-box;
-    width: 100%;
     padding: 0;
     margin: 0 auto;
     display: flex;
@@ -54,6 +53,7 @@
   }
   
   .contact-info {
+    margin-right: 11.5%;
     z-index: 1;
     color: white;
     text-align: center;
@@ -156,7 +156,11 @@
   
     .container .img {
       height: 100%; /* Ensure full height */
+     }
+     video{
+       width: 100% !important;
     }
+  
   
     .container .img img {
       height: 100%; /* Ensure full height */
@@ -172,6 +176,9 @@
   @media (max-width: 480px) {
     .intro {
       width: 100%;
+    }
+    video{
+       width: 100% !important;
     }
   
     .intro .text h1 {
@@ -197,15 +204,19 @@
     }
   
     .contact-info {
-      width: 95%;
+      width: 100% !important;
     }
   
     .contact-info h3 {
       font-size: clamp(1.2em, 2vw, 1.8em);
+            margin-right: 10px !important;
+
     }
   
     .contact-info p {
       font-size: clamp(1em, 1.2vw, 0.9em);
+            margin-right: 10px !important;
+
     }
   }
   

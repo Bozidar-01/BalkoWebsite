@@ -47,13 +47,15 @@
     @media (max-width: 768px) {
         flex-direction: column; /* Stack parts vertically */
         align-items: center;
-        padding: 15px 10px;
+        padding: 30px 10px;
 
         .firstPart {
             width: 90%; /* Full width with margin */
             margin: 0;
             font-size: 11px;
             text-align: center; /* Center text for better mobile display */
+            text-decoration: none;
+            color: #fff !important;
         }
 
         .secondPart {
@@ -65,8 +67,8 @@
                 justify-content: center;
 
                 .social-icon {
-                    width: 35px;
-                    height: 35px;
+                    width: 45px;
+                    height: 45px;
                     padding: 4px;
                 }
             }
@@ -74,11 +76,13 @@
     }
 
     @media (max-width: 480px) {
-        padding: 10px 10px;
+        padding: 30px 10px;
 
         .firstPart {
-            font-size: 10px;
+            font-size: 14px;
             line-height: 1.4;
+            text-decoration: none;
+            color: #fff !important;
         }
 
         .secondPart {
@@ -88,8 +92,8 @@
                 gap: 8px;
 
                 .social-icon {
-                    width: 30px;
-                    height: 30px;
+                    width: 45px;
+                    height: 45px;
                     padding: 3px;
                 }
             }

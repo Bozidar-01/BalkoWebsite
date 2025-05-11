@@ -13,7 +13,6 @@
   /* Intro Section */
   .intro {
     box-sizing: border-box;
-    width: 100%;
     padding: 1rem 3rem;
     margin: 0 auto;
     display: flex;
@@ -119,15 +118,11 @@
     }
 
     @media (max-width: 768px) {
-      width: 200px;
-      height: 50px;
       font-size: 16px;
       padding: 8px 20px;
     }
 
     @media (max-width: 480px) {
-      width: 180px;
-      height: 45px;
       font-size: 14px;
     }
   }

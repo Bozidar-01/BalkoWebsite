@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnDestroy, ViewChild, ElementRef, PLATFORM_ID
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ApiService } from '../services/api.service';
 Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
@@ -20,11 +21,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private observer: IntersectionObserver | undefined;
   safeUrl: SafeResourceUrl;
-
+  promotions:any = []
+  promotion1:any 
+  promotion2:any 
+  promotion3:any
   modalOpen = false;
   selectedTitle = '';
   selectedImg = '';
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer,private apiService:ApiService) {
     const url = 'https://www.facebook.com/people/BALKO-Brand/61562417596105/';
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -35,6 +39,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       this.animateSecondContainerOnView(); 
       this.animateThirdContainerOnView(); 
       this.animatefourthContainerOnView(); 
+      this.apiService.getPromotions().subscribe(res => {
+        this.promotions = res
+       this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
+       this.promotion2 = this.promotions.length > 0 ? this.promotions[1] : null;
+       this.promotion3 = this.promotions.length > 0 ? this.promotions[2] : null;
+
+        console.log('API Response:',  this.promotion1);
+});
     }
   }
   

@@ -12,6 +12,11 @@ header {
   padding: 15px 80px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo a {
   font-size: 24px;
   font-weight: bold;
@@ -81,35 +86,46 @@ header {
 
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
-  /* Header Styles */
   .top-bar {
-    padding: 10px 20px;
-    justify-content: space-between;
+    padding: 20px 25px;
+    min-height: 64px;
+    background-color: #d63054;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .logo img {
-    height: 30px;
+    height: 36px;
+  }
+
+  .logo a {
+    font-size: 26px;
   }
 
   .hamburger {
     display: block;
+    padding: 10px;
+  }
+
+  .hamburger .bar {
+    width: 28px;
+    height: 3px;
+    margin: 6px 0;
   }
 
   .nav-menu {
     position: fixed;
     top: 0;
-    left: -100%; /* Hidden off-screen */
-    width: 250px; /* Fixed width for side menu */
+    left: -100%;
+    width: 250px;
     height: 100%;
     background-color: #000 !important;
-    transition: left 0.3s ease; /* Smooth slide-in */
+    transition: left 0.3s ease;
     z-index: 1000;
     overflow-y: auto;
   }
 
   .nav-menu.show {
-    left: 0; /* Slide in when active */
-
+    left: 0;
   }
 
   .bottom-bar {
@@ -125,16 +141,15 @@ header {
     display: block;
     width: 100%;
     padding: 10px;
-    color: #fff; /* Brighter color for better visibility */
+    color: #fff;
   }
 
   .bottom-bar a:hover,
   .bottom-bar a.active {
     color: #fff;
-    background-color: #000 !important; /* Subtle highlight on hover/active */
+    background-color: #000 !important;
   }
 
-  /* Existing Swiper and Promo Section Styles */
   .swiper {
     height: 300px;
   }
@@ -175,23 +190,27 @@ header {
 }
 
 @media (max-width: 480px) {
-  /* Header Styles */
   .top-bar {
-    padding: 8px 15px;
+    padding: 22px 20px;
+    min-height: 70px;
   }
 
   .logo img {
-    height: 25px;
+    height: 34px;
+  }
+
+  .logo a {
+    font-size: 24px;
   }
 
   .hamburger .bar {
-    width: 20px;
-    height: 2px;
-    margin: 4px 0;
+    width: 26px;
+    height: 3px;
+    margin: 5px 0;
   }
 
   .nav-menu {
-    width: 200px; /* Slightly narrower for smaller screens */
+    width: 200px;
   }
 
   .bottom-bar a {

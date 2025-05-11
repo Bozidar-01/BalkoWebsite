@@ -6,7 +6,7 @@ import { MarketsComponent } from './markets/markets.component';
 import { WorkComponent } from './work/work.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, data: { title: 'Балко Маркети' } },   
+  { path: '', component: HomeComponent, data: { title: 'Балко Маркети' } },
   { path: 'zanas', component: AboutComponent, data: { title: 'За нас' } },
   { path: 'kontakt', component: ContactComponent, data: { title: 'Контактирајте Не' } },
   { path: 'marketi', component: MarketsComponent, data: { title: 'Маркети' } },

@@ -38,7 +38,7 @@
 <div
   class="secondContainer"
   #secondContainer
-  style="background: url('/doma/second.jpg') no-repeat center center !important; background-size: cover !important; width: 100vw !important; height: 60vh !important;"
+  style="background: url('/doma/second.jpg') no-repeat center center !important; background-size: cover !important; width: 100vw !important;"
 >
   <div class="promo-content">
     <div class="flexDiv">
@@ -65,8 +65,8 @@
           <img style="width:120px;" src="doma/qr2.png" alt="qr" />
 
         </div>
-             <div  class="plyr">
-            <dotlottie-player src="https://lottie.host/b145b3ac-0991-4919-a6b7-a3f2ba4bc88a/asBvjaABNu.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+             <div  class="plyr" style="padding-bottom: 20px;">
+            <!-- <dotlottie-player src="https://lottie.host/b145b3ac-0991-4919-a6b7-a3f2ba4bc88a/asBvjaABNu.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player> -->
           </div>
       </div>
 
@@ -88,22 +88,22 @@
 <div class="thirdContainer" #thirdContainer>
   
   
-  <div class="firstPart">
+  <div class="firstPart" >
     <img  src="doma/nedelnaPonuda.jpg" alt="img" class="offer-part" />
     
-    <button (click)="openModal('Неделна Понуда', 'strugaKasierka.jpg')">Прелистај</button>
+    <button (click)="openModal('Неделна Понуда',  promotion1.image_path)">Прелистај</button>
   </div>
   
   <div class="secondPart">
     <img  src="doma/superPonuda.jpg" alt="img" class="offer-part" />
 
-    <button (click)="openModal('Супер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
+    <button (click)="openModal('Супер Понуда', promotion2.image_path)">Прелистај</button>
   </div>
 
   <div class="thirdPart">
     <img  src="doma/flaerPonuda.jpg" alt="img" class="offer-part" />
 
-    <button (click)="openModal('Флаер Понуда', 'strugaKasierka.jpg')">Прелистај</button>
+    <button (click)="openModal('Флаер Понуда', promotion3.image_path)">Прелистај</button>
   </div>
 </div>
 

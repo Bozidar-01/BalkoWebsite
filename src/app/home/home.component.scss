@@ -1,9 +1,10 @@
 .secondContainer {
   position: relative;
-  min-height: 80vh; /* Full screen height */
   z-index: 999;
   background-size: cover;
   background-position: center;
+  padding-top: 50px;
+  padding-bottom: 50px !important;
   background-repeat: no-repeat;
   .animate-item {
     opacity: 0;
@@ -25,11 +26,12 @@
   overflow: hidden;
 
   .promo-content {
+    padding-top: 100px;
     width: 100vw;
-    height: 100vh;
     display: flex;
     align-items: center;  /* Vertically center the content */
     justify-content: center;
+    flex-wrap: wrap;
 
     .personImg{
       border-radius: 50%;
@@ -45,6 +47,8 @@
       justify-content: center;
       align-items: center;
       width: 100% !important;
+      flex-wrap: wrap;
+
     }
 
     .secondPart {
@@ -66,14 +70,14 @@
       
       
       button {
-    background-color: #1a1a1a;
+    background-color: #fff;
     color: #ff0000;
     border: 2px solid #ff0000;
     border-radius: 30px;
     padding: 10px 30px;
     margin-top: 30px;
     width: 250px;
-    height: 60px;
+    height: 50px;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -83,19 +87,19 @@
     &:hover {
       border-radius: 15px;
       background-color: #ff0000;
-      color: #000000;
+      color: #fff;
     }
 
     @media (max-width: 768px) {
-      width: 200px;
+      width: 250px;
       height: 50px;
       font-size: 16px;
       padding: 8px 20px;
     }
 
     @media (max-width: 480px) {
-      width: 180px;
-      height: 45px;
+      width: 250px;
+      height: 50px;
       font-size: 14px;
     }
   }
@@ -104,7 +108,7 @@
     .promo-box {
       padding: 40px 50px;
       border-radius: 8px;
-      
+
       .heading {
         display: flex;
         flex-direction: column;
@@ -164,13 +168,14 @@
 
   /* Mobile View Adjustments */
   @media (max-width: 768px) {
-    min-height: 140vh; /* Full screen height for mobile */
+
       .plyr{
         margin-left:0 !important;
       }
     .promo-content {
       height: auto;
       padding: 20px;
+    padding-top: 100px !important;
 
       .personImg{
         width:60vw; 
@@ -252,9 +257,9 @@
   }
 
   @media (max-width: 480px) {
-    min-height: 140vh; /* Full screen height for mobile */
+
       .plyr{
-        margin-left:0 !important;
+        margin-left:30px !important;
       }
 
     .promo-content {
@@ -268,20 +273,27 @@
         button {
           padding: 8px 25px;
           font-size: 13px;
+          margin-bottom: 40px;
+        }
+
+        
+        .personImg{
+          width: 350px !important;
+          height: 350px !important;
         }
       }
 
       .promo-box {
-        padding: 15px;
+        padding: 5px;
 
         .heading {
           h1 {
-            font-size: 28px;
+            font-size: 38px;
           }
 
           h2 {
             text-align: center;
-            font-size: 36px;
+            font-size: 56px;
           }
 
           .emoji {
@@ -290,18 +302,21 @@
         }
 
         ol {
-          padding-left: 10px;
 
           li {
+            font-size: 22px;
+          }
+          span{
             font-size: 16px;
           }
         }
+
 
         .logos {
           gap: 15px;
 
           img {
-            width: 50px;
+            width: 170px !important;
           }
         }
       }
@@ -364,25 +379,27 @@
     margin-bottom: 50px;
 
     @media (max-width: 768px) {
-      width: 250px;
-      height: 150px;
+      width: 320px;
+      height: 200px;
       margin-bottom: 30px;
     }
 
     @media (max-width: 480px) {
-      width: 200px;
-      height: 120px;
+      width: 320px;
+      height: 200px;
     }
   }
 
-  button {
-    background-color: #1a1a1a;
+        
+      button {
+    background-color: #fff;
     color: #ff0000;
     border: 2px solid #ff0000;
     border-radius: 30px;
     padding: 10px 30px;
+    margin-top: 30px;
     width: 250px;
-    height: 60px;
+    height: 50px;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     font-size: 18px;
@@ -392,24 +409,23 @@
     &:hover {
       border-radius: 15px;
       background-color: #ff0000;
-      color: #000000;
+      color: #fff;
     }
 
     @media (max-width: 768px) {
-      width: 200px;
+      width: 250px;
       height: 50px;
       font-size: 16px;
       padding: 8px 20px;
     }
 
     @media (max-width: 480px) {
-      width: 180px;
-      height: 45px;
+      width: 250px;
+      height: 50px;
       font-size: 14px;
     }
   }
 }
-
 /* Animation for cart */
 @keyframes jump {
   0%, 100% {
@@ -422,7 +438,7 @@
 
 
 .fourthContainer {
-  background: #eef2c1 !important;
+  background: #fff5f5 !important;
   display: flex;
   justify-content: center;
   align-items: center;
