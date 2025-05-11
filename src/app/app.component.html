@@ -1,3 +1,8 @@
 <app-header></app-header>
 <router-outlet></router-outlet>
+<button class="scroll-to-top" [ngClass]="{'visible': showScrollButton}" (click)="scrollToTop()">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5l-7 7h5v7h4v-7h5l-7-7z"/>
+      </svg>
+    </button>
 <app-footer></app-footer>

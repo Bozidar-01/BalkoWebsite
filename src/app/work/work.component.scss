@@ -10,59 +10,75 @@
     object-fit: cover;
   }
   
-  /* Intro Section */
-  .intro {
-    box-sizing: border-box;
-    padding: 1rem 3rem;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #eef2c1;
-    overflow: hidden;
+.intro {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #d63054;
+   justify-content: center;
+  padding-right: 10rem;
+  gap: 1rem;
+  overflow: hidden;
+    padding-top: 120px !important;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
   }
-  
-  .intro .text {
-    flex: 1 1 100%;
-    color: #000;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  
-  .intro .text h1 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: #000;
-  }
-  
-  .intro .text.sub-heading h1 {
-    font-size: clamp(1rem, 4vw, 1.8rem);
-    text-transform: none;
-    font-weight: normal;
-  }
-  
-  .intro .text p {
-    font-size: clamp(0.3rem, 3.5vw, 0.9rem);
-    color: #000;
-    font-weight: 300;
+
+  .text {
+    color: #fff !important;
     text-align: left;
-    max-width: 430px;
-    margin: 0 auto;
+    padding: 0 1rem;
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      margin: 1rem 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    &.sub-heading h1 {
+      padding-top: 1rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      text-transform: none;
+      font-weight: normal;
+
+      b {
+        color: #fff;
+        font-weight: normal;
+      }
+    }
+
+    p {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      color: #fff;
+      font-weight: 300;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
-  
-  .intro .animation {
-    flex: 1 1 100%;
+
+  .animation {
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+
+    dotlottie-player {
+      width: 200px;
+      height: 200px;
+    }
   }
-  
-  .intro dotlottie-player {
-    width: 200px;
-    height: 200px;
-  }
+}
+
   
   /* Job Section */
   .job-section {
@@ -99,15 +115,17 @@
   // }
 
   .job-btn {
-    background-color: #1a1a1a;
+    background-color: #fff;
     color: #ff0000;
     border: 2px solid #ff0000;
     border-radius: 30px;
-    padding: 22px 40px;
+    padding: 10px 30px;
+    width: auto;
+    margin: 0 auto !important;
+    margin-top: 10px !important;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    font-size: 18px;
-    margin-top: 10px;
+    font-size: 17px;
     cursor: pointer;
     transition: background-color 0.6s ease, color 0.6s ease, border-radius 0.4s ease;
 
@@ -254,22 +272,33 @@
   
   /* Responsive Styles */
   @media (max-width: 768px) {
-    .intro {
-      flex-wrap: wrap;
-    }
+     .intro {
+        flex-direction: column;
+        padding: 1rem 1rem;
+        text-align: center;
   
-    .intro .text {
-      flex: 1 1 100%;
-    }
+        .image img {
+          width: 100%;
+          max-width: 200px;
+        }
   
-    .intro .animation {
-      margin-top: 1rem;
-    }
+        .text h1 {
+          font-size: 1.8rem;
+        }
+      }
   
-    .intro dotlottie-player {
-      width: 150px;
-      height: 150px;
-    }
+      .gridcards {
+        padding: 2rem 1rem;
+  
+        .card {
+          width: 100%;
+        }
+      }
+  
+      .team-section .team-grid {
+        flex-direction: column;
+        align-items: center;
+      }
   
     .job-section .jobs {
       width: 100%;
@@ -349,3 +378,152 @@
     opacity: 1;
   }
   
+  /* Phone Landscape View */
+@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+  /* Main Image Section */
+  .mainImg {
+    height: 300px; /* Reduce height for landscape viewport */
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Intro Section */
+  .intro {
+    flex-direction: column; /* Stack content vertically */
+    padding: 1rem; /* Reduce padding */
+    padding-right: 1rem; /* Remove excessive right padding */
+    gap: 0.5rem; /* Tighten gap */
+    min-height: auto; /* Allow natural height */
+    justify-content: center;
+
+    .text {
+      text-align: center; /* Center text for better alignment */
+      padding: 0 0.5rem;
+
+      h1 {
+        font-size: clamp(1.8rem, 4vw, 2.2rem); /* Smaller heading */
+        margin: 0.5rem 0;
+      }
+
+      &.sub-heading h1 {
+        font-size: clamp(1rem, 3vw, 1.5rem); /* Smaller sub-heading */
+        padding-top: 0.5rem;
+      }
+
+      p {
+        font-size: clamp(0.8rem, 2vw, 0.9rem); /* Smaller paragraph */
+        max-width: 90%; /* Prevent overflow */
+        margin: 0 auto;
+      }
+    }
+
+    .animation {
+      margin-top: 0.5rem;
+
+      dotlottie-player {
+        width: 120px; /* Smaller animation */
+        height: 120px;
+      }
+    }
+  }
+
+  /* Job Section */
+  .job-section {
+    padding: 1.5rem 0.5rem; /* Reduce padding */
+
+    .jobs {
+      width: 100%; /* Full width for job buttons */
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem; /* Tighten gap */
+    }
+
+    .job-btn {
+      width: 90%; /* Slightly wider for touch */
+      padding: 10px 20px;
+      font-size: 14px; /* Smaller font */
+      border-radius: 20px; /* Slightly smaller radius for compactness */
+      margin-top: 5px !important;
+    }
+  }
+
+  /* Modal */
+  .modal {
+    padding: 0.5rem; /* Reduce padding */
+
+    .modal-content {
+      width: 95%; /* Maximize width */
+      max-width: 90%; /* Prevent overflow */
+      max-height: 80vh; /* Limit height */
+      padding: 1rem; /* Reduce padding */
+      border-radius: 8px;
+
+      h3 {
+        font-size: 1.4rem; /* Smaller heading */
+        margin-bottom: 0.5rem;
+      }
+
+      img {
+        max-height: 150px; /* Limit image height */
+        margin-bottom: 1rem;
+      }
+
+      .close-btn {
+        font-size: 1.5rem; /* Smaller close button */
+        top: 0.5rem;
+        right: 0.8rem;
+      }
+
+      .apply-btn {
+        padding: 0.6rem 1rem; /* Smaller button */
+        font-size: 0.9rem;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  /* Comparison Table */
+  .comparison-table {
+    margin: 1rem 0; /* Reduce margin */
+
+    .row {
+      flex-direction: column; /* Stack rows vertically */
+      padding: 0.5rem;
+    }
+
+    .cell {
+      width: 100%; /* Full width */
+      font-size: 1.2rem; /* Smaller font */
+      padding: 0.5rem;
+
+      p {
+        width: 100%; /* Full width for text */
+        font-size: 1.8rem; /* Smaller paragraph */
+        line-height: 1.3;
+      }
+    }
+
+    .x-img {
+      width: 100%; /* Full width for image */
+      max-width: 250px; /* Limit size */
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  /* Animation Classes */
+  .animate__animated {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Slightly faster transition */
+  }
+
+  .animate__visible {
+    opacity: 1;
+  }
+}

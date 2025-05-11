@@ -18,7 +18,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('secondContainer', { static: false }) secondContainer!: ElementRef;
   @ViewChild('fourthContainer', { static: false }) fourthContainer!: ElementRef;
   @ViewChild('thirdContainer', { static: true }) thirdContainer!: ElementRef;
-
+text:string=''
   private observer: IntersectionObserver | undefined;
   safeUrl: SafeResourceUrl;
   promotions:any = []
@@ -39,15 +39,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       this.animateSecondContainerOnView(); 
       this.animateThirdContainerOnView(); 
       this.animatefourthContainerOnView(); 
-      this.apiService.getPromotions().subscribe(res => {
-        this.promotions = res
-       this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
-       this.promotion2 = this.promotions.length > 0 ? this.promotions[1] : null;
-       this.promotion3 = this.promotions.length > 0 ? this.promotions[2] : null;
-
-        console.log('API Response:',  this.promotion1);
-});
+//       this.apiService.getPromotions().subscribe(res => {
+//         this.promotions = res
+//        this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
+//        this.promotion2 = this.promotions.length > 0 ? this.promotions[1] : null;
+//        this.promotion3 = this.promotions.length > 0 ? this.promotions[2] : null;
+// });
     }
+  }
+  ngOnInit(){
+    // this.text= 'IHJASIHDSA'
   }
   
   openModal(title: string, img: string) {

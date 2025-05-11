@@ -1,11 +1,12 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   imports: [],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.scss'
+  styleUrl: './about.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AboutComponent {
   @ViewChild('gridcards', { static: true }) gridcards!: ElementRef;

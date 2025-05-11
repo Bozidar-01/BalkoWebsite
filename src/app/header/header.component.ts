@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -11,8 +11,18 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+ constructor(private ngZone: NgZone) {}
+
   searchQuery: string = '';
   isMenuOpen: boolean = false;
+  isDropdownOpen = false;
+
+  toggleDropdown() {
+    this.ngZone.run(() => {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    });
+      this.isMenuOpen = !this.isMenuOpen;
+  }
 
   onSearch() {
     if (this.searchQuery.trim()) {
@@ -23,6 +33,8 @@ export class HeaderComponent {
   }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+    this.ngZone.run(() => {
+      this.isMenuOpen = !this.isMenuOpen;
+    });
   }
 }

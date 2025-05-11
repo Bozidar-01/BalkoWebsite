@@ -6,23 +6,49 @@
         <img src="balko.jpg" alt="Balko logo" />
       </a>
     </div>
-
+<!-- <p style="color:white;position:absolute;top:0;left:0;z-index:10000">
+  Menu Open: {{ isMenuOpen }}
+</p> -->
     <!-- Hamburger Button (Visible in Mobile) -->
-    <button class="hamburger" [ngClass]="{'active': isMenuOpen}" (click)="toggleMenu()" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+<button
+  class="hamburger"
+  [ngClass]="{'active': isMenuOpen}"
+  (click)="toggleMenu()"
+  aria-label="Toggle navigation menu"
+  [attr.aria-expanded]="isMenuOpen">
+  <span class="bar"></span>
+  <span class="bar"></span>
+  <span class="bar"></span>
+</button>
+
   </div>
 
   <!-- Side Menu (Navigation) -->
-  <div class="nav-menu" [ngClass]="{'show': isMenuOpen}">
-    <nav class="bottom-bar">
-      <a routerLink="/" routerLinkActive="active" (click)="toggleMenu()">Дома</a>
-      <a routerLink="/marketi" routerLinkActive="active" (click)="toggleMenu()">Маркети</a>
-      <a routerLink="/zanas" routerLinkActive="active" (click)="toggleMenu()">За нас</a>
-      <a routerLink="/kontakt" routerLinkActive="active" (click)="toggleMenu()">Контакт</a>
-      <a routerLink="/vrabotuvanje" routerLinkActive="active" (click)="toggleMenu()">Вработување</a>
-    </nav>
+<!-- Side Menu (Navigation) -->
+<div class="nav-menu" [ngClass]="{'show': isMenuOpen}">
+  <nav class="bottom-bar">
+    <a routerLink="/" routerLinkActive="active" (click)="toggleMenu()">Дома</a>
+
+    <!-- Маркети with Dropdown
+<div class="dropdown"
+     (click)="toggleDropdown()"
+     (mouseenter)="isDropdownOpen = true"
+     (mouseleave)="isDropdownOpen = false">
+      <a  routerLinkActive="active" class="has-dropdown">Маркети</a>
+
+  <div class="dropdown-content" *ngIf="isDropdownOpen">
+    <a routerLink="/marketi" routerLinkActive="active"  (click)="toggleMenu()">Маркети</a>
+    <a href="https://marketi.balko.com.mk/" target="_blank" (click)="toggleMenu()">Листа на артикли</a>
   </div>
+</div> -->
+
+
+<a routerLink="/zanas" routerLinkActive="active" (click)="toggleMenu()">За нас</a>
+<a routerLink="/marketi" routerLinkActive="active"  (click)="toggleMenu()">Маркети</a>
+    <a href="https://marketi.balko.com.mk/"  (click)="toggleMenu()">Листа на артикли</a>
+    <a routerLink="/kontakt" routerLinkActive="active" (click)="toggleMenu()">Контакт</a>
+    <a routerLink="/vrabotuvanje" routerLinkActive="active" (click)="toggleMenu()">Вработување</a>
+  </nav>
+</div>
+
 </header>

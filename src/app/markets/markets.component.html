@@ -28,17 +28,11 @@
 
 <section class="intro">
   <div class="text">
-    <h1>Локации</h1>
+<h1 class="typing">Локации</h1>
   </div>
 
   <div class="animation">
-    <dotlottie-player
-      src="https://lottie.host/1169e4da-0f9a-484b-b7e5-e937a77c465e/gIglIbifhe.lottie"
-      background="transparent"
-      speed="1"
-      loop
-      autoplay
-    ></dotlottie-player>
+<dotlottie-player src="https://lottie.host/8ea9cc54-8eb6-48bf-a7aa-c5951372d4e1/4dLDyR7zfu.lottie" background="transparent" speed="1" style="width: 300px; height: 150px" loop autoplay></dotlottie-player>
   </div>
 
   <div class="text sub-heading" style="padding-bottom: 15px;">
@@ -56,13 +50,14 @@
 
     <div class="firstPart offer-part" *ngFor="let market of markets">
         <h1 class="offer-part">
-            <div style="font-size: 36px;">
+            <div style="font-size: 32px;">
                 {{ market.name }}
             </div>
-            <div style="font-size: 22px; text-transform: lowercase;">
+            <div style="font-size: 16px; font-weight: normal !important; text-transform: lowercase;">
               {{market.location}}
+              <br *ngIf="!market.location">
             </div>
-            <div style="font-size: 28px;">
+            <div style="font-size: 28px; font-weight: normal !important;">
                 {{market.city}}
           </div>
         </h1>

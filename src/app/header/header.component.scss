@@ -1,10 +1,27 @@
+/* Ensure the body has no margin to prevent gaps with fixed header */
+body {
+  margin: 0;
+}
+
+/* Header */
 header {
   width: 100%;
   background-color: #d63054;
   color: white;
+  border: none !important;
   font-family: Arial, sans-serif;
+  position: fixed; /* Make header stick to top */
+  top: 0;
+  left: 0;
+  z-index: 1100; /* Higher than nav-menu to stay above it */
 }
 
+/* Add padding to main content to prevent overlap with fixed header */
+main {
+  padding-top: 90px; /* Adjust based on header height (top-bar + bottom-bar) */
+}
+
+/* Top Bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -12,6 +29,7 @@ header {
   padding: 15px 80px;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -59,10 +77,12 @@ header {
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Nav Menu */
 .nav-menu {
-  background-color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
+/* Bottom Bar */
 .bottom-bar {
   display: flex;
   justify-content: center;
@@ -84,13 +104,63 @@ header {
   color: #000;
 }
 
+/* Dropdown */
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.has-dropdown {
+  cursor: pointer;
+  display: block;
+}
+
+.dropdown-content {
+  position: relative; /* For mobile layout */
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  width: 100%; /* Full width for mobile */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* Desktop Dropdown */
+@media (min-width: 768px) {
+  .dropdown {
+    width: auto;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px; /* Increased width for larger screens */
+  }
+}
+
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
+  main {
+    padding-top: 80px; /* Adjust for smaller header height */
+  }
+
   .top-bar {
     padding: 20px 25px;
     min-height: 64px;
     background-color: #d63054;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .logo img {
@@ -150,6 +220,15 @@ header {
     background-color: #000 !important;
   }
 
+  .dropdown-content {
+    background-color: #000;
+  }
+
+  .dropdown-content a {
+    color: #fff !important;
+  }
+
+  /* Swiper and Promo Section (unchanged from your provided CSS) */
   .swiper {
     height: 300px;
   }
@@ -189,7 +268,12 @@ header {
   }
 }
 
+/* Smaller Mobile Devices */
 @media (max-width: 480px) {
+  main {
+    padding-top: 75px; /* Adjust for smaller header height */
+  }
+
   .top-bar {
     padding: 22px 20px;
     min-height: 70px;
@@ -217,4 +301,177 @@ header {
     font-size: 14px;
     padding: 8px;
   }
+
+  .dropdown-content {
+    background-color: #000;
+  }
+
+  .dropdown-content a {
+    color: #fff !important;
+    font-size: 16px;
+  }
+}
+
+/* Phone Landscape View */
+@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+  main {
+    padding-top: 60px; /* Adjust for compact header in landscape */
+  }
+
+  /* Header */
+  header {
+    width: 100%;
+    background-color: #d63054;
+  }
+
+  /* Top Bar */
+  .top-bar {
+    padding: 8px 15px; /* Further reduce padding */
+    min-height: 40px; /* Compact height for landscape */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Logo */
+  .logo {
+    img {
+      height: 28px; /* Smaller logo */
+    }
+
+    a {
+      font-size: 18px; /* Smaller font */
+    }
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: block;
+    padding: 6px;
+
+    .bar {
+      width: 22px; /* Smaller bars */
+      height: 2px;
+      margin: 4px 0;
+    }
+  }
+
+  /* Nav Menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 180px; /* Narrower for landscape */
+    height: 100%;
+    background-color: #000 !important;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+
+    &.show {
+      left: 0;
+    }
+  }
+
+  /* Bottom Bar */
+  .bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+    gap: 3px; /* Tighter gap */
+
+    a {
+      margin: 8px 0;
+      font-size: 13px; /* Smaller font */
+      padding: 6px;
+      color: #fff;
+      width: 100%;
+      display: block;
+
+      &:hover,
+      &.active {
+        color: #fff;
+        background-color: #333 !important;
+      }
+    }
+  }
+
+  /* Dropdown */
+  .dropdown {
+    width: 100%;
+  }
+
+  .has-dropdown {
+    display: block;
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background-color: #000;
+    padding: 8px;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 4px;
+    flex-direction: column;
+    gap: 6px;
+
+    a {
+      font-size: 13px; /* Smaller font */
+      color: #fff !important;
+
+      &:hover {
+        text-decoration: underline;
+        background-color: #333 !important;
+      }
+    }
+  }
+
+  /* Swiper */
+  .swiper {
+    height: 200px; /* Further reduced for landscape */
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+
+  .swiper-pagination {
+    bottom: 6px;
+  }
+
+  .slide-text {
+    h2 {
+      font-size: 16px; /* Smaller heading */
+    }
+
+    p {
+      font-size: 11px; /* Smaller text */
+    }
+  }
+
+  /* Promo Section */
+  .promo-section {
+    padding: 8px;
+
+    h2 {
+      font-size: 14px; /* Smaller heading */
+    }
+
+    button {
+      font-size: 12px; /* Smaller button text */
+      padding: 6px 12px;
+    }
+
+    li {
+      font-size: 12px; /* Smaller list items */
+    }
+  }
+}
+
+
+.nav-menu {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }

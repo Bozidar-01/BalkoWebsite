@@ -1,57 +1,69 @@
-/* Intro Section */
 .intro {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #d63054;
+  justify-content: center;
+  padding-right: 10rem;
+  gap: 1rem;
+  overflow: hidden;
+    padding-top: 120px !important;
+
+  .text {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #eef2c1;
-    overflow: hidden;
-  }
-  
-  .intro .text {
-    flex: 1 1 100%;
-    color: #000;
     text-align: center;
-    padding: 0 1rem;
+
+    h1 {
+      font-size: 4rem;
+      margin: 0 !important;
+      color: #fff !important;
+      text-transform: uppercase;
+
+      @media (max-width: 768px) {
+        font-size: 42px !important;
+      }
+    }
   }
-  
-  .intro .text h1 {
-    font-size: clamp(2.5rem, 6vw, 6rem);
-    margin-bottom: 1rem;
+
+  .image {
     margin-top: 1rem;
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: #000;
+    flex: 0.5;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      max-width: 250px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
   }
-  
-  .intro .text.sub-heading h1 {
-    font-size: clamp(0.9rem, 4vw, 1.8rem);
-    text-transform: none;
-    font-weight: normal;
-  }
-  
-  .intro .text p {
-    font-size: clamp(0.7rem, 3.5vw, 0.9rem);
-    color: #000;
-    font-weight: 300;
-    text-align: left;
-    max-width: 430px;
-    margin: 0 auto;
-  }
-  
-  .intro .animation {
-    flex: 1 1 100%;
+
+    .animation {
     display: flex;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+    }
+
+    dotlottie-player {
+      width: 200px;
+      height: 200px;
+    }
   }
-  
-  .intro dotlottie-player {
-    width: clamp(120px, 20vw, 200px);
-    height: clamp(120px, 20vw, 200px);
-  }
-  
+}
+
   .contact-info {
     margin-right: 11.5%;
     z-index: 1;
@@ -71,10 +83,7 @@
     color: #000;
   }
   
-  .animation {
-    margin: 20px 0;
-    z-index: 1;
-  }
+
   
   .container {
     display: flex;
@@ -105,6 +114,33 @@
     flex-grow: 1;
   }
   
+  .video-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 77%;
+  height: 1300px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0; /* Centers overlay over 77% video */
+  width: 77%;
+  height: 1300px;
+  background-color: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  z-index: 2;
+  pointer-events: none;
+}
+
+  
   .container .img img {
     width: 100%;
     height: 100%; /* Take full height of the parent (.img) */
@@ -118,31 +154,34 @@
   
   /* Tablets (768px and below) */
   @media (max-width: 768px) {
-    .intro {
-      flex-wrap: wrap;
-      width: 95%;
-    }
+     .intro {
+        flex-direction: column;
+        padding: 1rem 1rem;
+        text-align: center;
   
-    .intro .text {
-      flex: 1 1 100%;
-    }
+        .image img {
+          width: 100%;
+          max-width: 200px;
+        }
   
-    .intro .animation {
-      margin-top: 1rem;
-    }
+        .text h1 {
+          font-size: 1.8rem;
+        }
+      }
   
-    .intro .text h1 {
-      font-size: clamp(1.8rem, 4.5vw, 4rem);
-    }
+      .gridcards {
+        padding: 2rem 1rem;
   
-    .intro .text.sub-heading h1 {
-      font-size: clamp(0.7rem, 3vw, 1.4rem);
-    }
+        .card {
+          width: 100%;
+        }
+      }
   
-    .intro .text p {
-      font-size: clamp(0.6rem, 3vw, 0.8rem);
-      max-width: 350px;
-    }
+      .team-section .team-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    
   
     .container {
       flex-direction: column;
@@ -170,6 +209,10 @@
       width: 90%;
       margin: 1rem auto;
     }
+        .video-overlay {
+  width: 100%;
+
+}
   }
   
   /* Mobile Devices (480px and below) */
@@ -180,6 +223,11 @@
     video{
        width: 100% !important;
     }
+
+    .video-overlay {
+  width: 100%;
+
+}
   
     .intro .text h1 {
       font-size: clamp(1.5rem, 4vw, 3rem);
@@ -247,3 +295,100 @@
       font-size: clamp(0.6em, 1vw, 0.8em);
     }
   }
+
+  /* Phone Landscape View */
+@media (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+  /* Intro Section */
+  .intro {
+    flex-direction: column; /* Stack content vertically */
+    padding: 1rem; /* Reduce padding */
+    padding-right: 1rem; /* Remove excessive right padding */
+    gap: 0.5rem; /* Tighten gap */
+    min-height: auto; /* Allow natural height */
+    justify-content: center;
+
+    .text {
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem); /* Smaller heading */
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    .image {
+      display: none; /* Hide image to save space, consistent with 768px */
+    }
+
+    .animation {
+      margin-top: 0.5rem;
+
+      dotlottie-player {
+        width: 120px; /* Smaller animation */
+        height: 120px;
+      }
+    }
+  }
+
+  /* Contact Info */
+  .contact-info {
+    margin-right: 0; /* Remove right margin for centering */
+    width: 90%; /* Ensure content fits */
+    margin: 1rem auto; /* Center horizontally */
+    padding: 0.5rem;
+
+    h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem); /* Smaller heading */
+      margin: 5px 0;
+      color: #ea1c25;
+    }
+
+    p {
+      font-size: clamp(0.7rem, 2vw, 0.9rem); /* Smaller text */
+      margin: 3px 0;
+      color: #000;
+    }
+  }
+
+  /* Container */
+  .container {
+    flex-direction: column; /* Stack columns vertically */
+    min-height: 300px; /* Adjust for landscape */
+    height: auto; /* Allow natural height */
+    padding: 0 !important;
+
+    .col {
+      width: 100%; /* Full-width columns */
+      min-height: 200px; /* Shorter columns */
+    }
+
+    .img {
+      height: 100%; /* Ensure full height */
+      width: 100%;
+
+      img {
+        height: 100%; /* Ensure image fills container */
+        object-fit: cover;
+      }
+    }
+  }
+
+  /* Video Wrapper */
+  .video-wrapper {
+    width: 100%; /* Full width */
+    height: auto; /* Allow natural height */
+    overflow: hidden;
+
+    .background-video {
+      width: 100% !important; /* Full width video */
+      height: 300px; /* Reduced height for landscape */
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .video-overlay {
+      width: 100% !important; /* Match video width */
+      height: 300px; /* Match video height */
+      background-color: rgba(0, 0, 0, 0.4); /* Maintain overlay opacity */
+      z-index: 2;
+    }
+  }
+}
