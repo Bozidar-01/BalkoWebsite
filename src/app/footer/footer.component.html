@@ -1,23 +1,48 @@
 <div class="footer">
     <div class="firstPart">
-        <a routerLink="/">
-            <img style="width: 100px; margin: 30px 0; margin-bottom: 10px !important;" src="balko.jpg" alt="Balko logo" />
-        </a> <br>
-        Ул. Наум Наумовски Борче бр.3, 6330 Струга <br>
-        Тел.: +389 46 784 295 | +389 46 784 185 <br>
-        Е-пошта: <b [innerHTML]="'info@balko.com.mk'"></b>  <br>
-
+      <a routerLink="/">
+        <img
+          src="balko.jpg"
+          alt="Balko logo"
+          style="width: 100px; margin: 30px 0; margin-bottom: 10px !important;"
+        />
+      </a>
+      <br />
+      Ул. Наум Наумовски Борче бр.3, 6330 Струга <br />
+  
+      Тел.: 
+      <a href="tel:+38946784295">+389 46 784 295</a> | 
+      <a href="tel:+38946784185">+389 46 784 185</a> <br />
+  
+      Е-пошта: 
+      <a href="mailto:info@balko.com.mk"><b>{{email}}</b></a> <br />
     </div>
-
+  
     <div class="secondPart">
-        <div class="socials">
-            <a href="https://www.instagram.com/balkomarketi/" target="_blank">
-                <img src="doma/instagram-white.png" alt="Instagram" class="social-icon" />
-            </a>
-            <a href="https://www.facebook.com/balkomarketi/" target="_blank">
-                <img src="doma/facebook-white.png" alt="Facebook" class="social-icon" />
-            </a>
-      
-        </div>
+      <div class="socials">
+        <a
+          href="https://www.instagram.com/balkomarketi/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="doma/instagram-white.png"
+            alt="Instagram"
+            class="social-icon"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/balkomarketi/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="doma/facebook-white.png"
+            alt="Facebook"
+            class="social-icon"
+          />
+        </a>
+      </div>
     </div>
-</div>
+  </div>
+  

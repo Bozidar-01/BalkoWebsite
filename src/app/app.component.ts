@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { filter } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -17,29 +17,39 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   showScrollButton = false;
+  isBrowser: boolean;
+
   constructor(
     private titleService: Title,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
-@HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.showScrollButton = window.pageYOffset > 100;
+    private activatedRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
-  ngOnInit(): void {
-    if (this.router) {
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe(() => {
-        const child = this.getChild(this.activatedRoute);
-        const routeTitle = child.snapshot.data['title'];
-        if (routeTitle) {
-          this.titleService.setTitle(routeTitle); // Set the title dynamically
-          this.scrollToTop()
-        }
-      });
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (this.isBrowser) {
+      this.showScrollButton = window.pageYOffset > 100;
     }
-    this.onWindowScroll();
+  }
+
+  ngOnInit(): void {
+    if (this.isBrowser) {
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe(() => {
+          const child = this.getChild(this.activatedRoute);
+          const routeTitle = child.snapshot.data['title'];
+          if (routeTitle) {
+            this.titleService.setTitle(routeTitle);
+            this.scrollToTop();
+          }
+        });
+
+      this.onWindowScroll(); // Call only if in browser
+    }
   }
 
   getChild(route: ActivatedRoute): ActivatedRoute {
@@ -52,6 +62,8 @@ export class AppComponent {
   }
 
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (this.isBrowser) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }
 }
