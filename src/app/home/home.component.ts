@@ -39,12 +39,12 @@ text:string=''
       this.animateSecondContainerOnView(); 
       this.animateThirdContainerOnView(); 
       this.animatefourthContainerOnView(); 
-//       this.apiService.getPromotions().subscribe(res => {
-//         this.promotions = res
-//        this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
-//        this.promotion2 = this.promotions.length > 0 ? this.promotions[1] : null;
-//        this.promotion3 = this.promotions.length > 0 ? this.promotions[2] : null;
-// });
+      this.apiService.getPromotions().subscribe(res => {
+        this.promotions = res
+       this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
+       this.promotion2 = this.promotions.length > 0 ? this.promotions[1] : null;
+       this.promotion3 = this.promotions.length > 0 ? this.promotions[2] : null;
+});
     }
   }
   ngOnInit(){
@@ -54,7 +54,11 @@ text:string=''
   openModal(title: string, img: string) {
     this.selectedTitle = title;
     this.selectedImg = img;
-    this.modalOpen = true;
+    if(this.selectedImg){
+      this.modalOpen = true;
+    }else{
+      this.modalOpen = false;
+    }
   }
 
   closeModal() {
