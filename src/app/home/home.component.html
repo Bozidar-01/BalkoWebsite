@@ -44,8 +44,7 @@
         <ol style="color: #000 !important;" class="animate-item">
           <li>Купувајте во БАЛКО Маркети</li>
           <li>
-            <span style="color: #000 !important;" class="highlight">Испратете ја сметката за кешбек</span>
-
+            Испратете ја сметката за кешбек
           </li>
           <span style="color: #000 !important; margin-bottom: 0 !important;" class="highlight">Сите подетални информации можете да ги најдете на профилот на балко маркети на myWorld.</span>
 
@@ -80,19 +79,19 @@
   <div class="firstPart" >
     <img  src="doma/nedelnaPonuda.jpg" alt="img" class="offer-part" />
     
-    <button (click)="openModal('Неделна Понуда',  promotion1?.image_path)">Прелистај</button>
+    <button (click)="openModal('Неделна Понуда',  promotion1?.image_paths)">Прелистај</button>
   </div>
   
   <div class="secondPart">
     <img  src="doma/superPonuda.jpg" alt="img" class="offer-part" />
 
-    <button (click)="openModal('Супер Понуда', promotion2?.image_path)">Прелистај</button>
+    <button (click)="openModal('Супер Понуда', promotion2?.image_paths)">Прелистај</button>
   </div>
 
   <div class="thirdPart">
     <img  src="doma/flaerPonuda.jpg" alt="img" class="offer-part" />
 
-    <button (click)="openModal('Флаер Понуда', promotion3?.image_path)">Прелистај</button>
+    <button (click)="openModal('Флаер Понуда', promotion3?.image_paths)">Прелистај</button>
   </div>
 </div>
 
@@ -107,15 +106,19 @@
 
 <div class="fourthContainer "   #fourthContainer>
 
-  <div class="phone-wrapper phoneBounceIn">
+  <div class="card phone-wrapper animate__animated" data-anim="animate__rotateInDownLeft">
     <div class="fb-wrapper">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbalkomarketi2&tabs=timeline&width=345&height=610&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="345" height="620" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      <iframe  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbalkomarketi2&tabs=timeline&width=345&height=610&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="345" height="620" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
   </div>
-  <img src="doma/phone.png" alt="Phone" />
+  <img class="" data-anim="animate__rotateInDownLeft" src="doma/phone.png" alt="Phone" />
 </div>
 
-<img class="mobilePhone phoneBounceIn" src="doma/mobileView.png" alt="Phone" />
+<div  class="card animate__animated mobile" data-anim="animate__rotateInDownLeft"  style="display: flex !important; flex-direction: column; justify-content: center; align-items: center;">
 
+  <img class="mobilePhone phoneBounceIn" src="doma/mobileView.png" alt="Phone" style="height: 630px;" />
+  <dotlottie-player src="https://lottie.host/03c2e0a8-707b-458e-8add-e64e91398565/jwS2prqaB9.lottie" background="transparent" speed="1" style="width: 300px; height: 300px; " loop autoplay></dotlottie-player>
+
+</div>
   <div class="secondPart phoneBounceIn">
     <h2 style="font-size: 52px; padding-bottom: 0; margin-bottom: 0; color: #d63054;">
       Следете нѐ на нашите социјални мрежи
@@ -123,14 +126,14 @@
 
     <p style="font-size: 24px; padding-top: 0; margin-top: 10px; display: flex; margin-bottom: 0; color: #000;">
       И бидете први <br> што ќе дознаат за <br> најдобрите акции!
-<dotlottie-player src="https://lottie.host/03c2e0a8-707b-458e-8add-e64e91398565/jwS2prqaB9.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+<dotlottie-player src="https://lottie.host/03c2e0a8-707b-458e-8add-e64e91398565/jwS2prqaB9.lottie" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     </p>
 
     <div class="socials">
       <a href="https://www.instagram.com/balkomarketi/" target="_blank">
           <img src="doma/instagram-icon.png" alt="Instagram" class="social-icon" />
       </a>
-      <a href="https://www.facebook.com/balkomarketi/" target="_blank">
+      <a href="https://www.facebook.com/balkomarketi2/" target="_blank">
           <img src="doma/facebook-icon.png" alt="Facebook" class="social-icon" />
       </a>
 

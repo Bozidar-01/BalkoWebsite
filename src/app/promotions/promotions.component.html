@@ -1,0 +1,23 @@
+<!-- Swiper container always in DOM -->
+<div class="swiper" #swiperContainer [ngStyle]="{ display: img?.length > 0 ? 'block' : 'none' }">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let image of img">
+      <img [src]="sanitizeImageUrl(image)" alt="{{ title || 'Promotion image' }}">
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="swiper-button-prev" *ngIf="img.length > 1">
+    <span class="chevron chevron-left"></span>
+  </div>
+  <div class="swiper-button-next" *ngIf="img.length > 1">
+    <span class="chevron chevron-right"></span>
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Fallback message, always in DOM -->
+<div class="no-images" [ngStyle]="{ display: !img || img.length === 0 ? 'flex' : 'none' }">
+  Понудите ќе пристигнат наскоро!
+</div>

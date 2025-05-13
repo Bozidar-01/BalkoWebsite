@@ -3,6 +3,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 Swiper.use([Navigation, Pagination, Autoplay]);
 @Component({
   selector: 'app-home',
@@ -22,13 +23,13 @@ text:string=''
   private observer: IntersectionObserver | undefined;
   safeUrl: SafeResourceUrl;
   promotions:any = []
-  promotion1:any 
-  promotion2:any 
+  promotion1:any
+  promotion2:any
   promotion3:any
   modalOpen = false;
   selectedTitle = '';
   selectedImg = '';
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer,private apiService:ApiService) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private sanitizer: DomSanitizer,private apiService:ApiService,private router: Router) {
     const url = 'https://www.facebook.com/people/BALKO-Brand/61562417596105/';
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -36,9 +37,9 @@ text:string=''
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.initializeSwiper();
-      this.animateSecondContainerOnView(); 
-      this.animateThirdContainerOnView(); 
-      this.animatefourthContainerOnView(); 
+      this.animateSecondContainerOnView();
+      this.animateThirdContainerOnView();
+      this.animatefourthContainerOnView();
       this.apiService.getPromotions().subscribe(res => {
         this.promotions = res
        this.promotion1 = this.promotions.length > 0 ? this.promotions[0] : null;
@@ -50,16 +51,34 @@ text:string=''
   ngOnInit(){
     // this.text= 'IHJASIHDSA'
   }
-  
-  openModal(title: string, img: string) {
-    this.selectedTitle = title;
-    this.selectedImg = img;
-    if(this.selectedImg){
-      this.modalOpen = true;
-    }else{
-      this.modalOpen = false;
+
+  // openModal(title: string, img: string) {
+  //   this.selectedTitle = title;
+  //   this.selectedImg = img;
+  //   if(this.selectedImg){
+  //     this.modalOpen = true;
+  //   }else{
+  //     this.modalOpen = false;
+  //   }
+  // }
+openModal(title: string, img: any) {
+  setTimeout(() => {
+    let queryParams: any = { title };
+
+    if (Array.isArray(img)) {
+      // Convert array to JSON string or use repeated query keys
+      queryParams.img = JSON.stringify(img);
+    } else {
+      queryParams.img = img;
     }
-  }
+
+    this.router.navigate(['/promocii'], {
+      queryParams
+    });
+  }, 100);
+}
+
+
 
   closeModal() {
     this.modalOpen = false;
@@ -113,7 +132,7 @@ text:string=''
     }
   }
 
-  
+
   animateSlideText(swiper: Swiper) {
     const slides = swiper.slides;
     slides.forEach((slide: HTMLElement) => {
@@ -135,7 +154,7 @@ text:string=''
     setTimeout(() => {
 
     if (!this.secondContainer) return;
-  
+
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -145,7 +164,7 @@ text:string=''
               el.classList.add('animate-in');
             }, 200 * index);
           });
-  
+
           // Optional: Stop observing after first animation
           if (this.observer) {
             this.observer.unobserve(entry.target);
@@ -155,7 +174,7 @@ text:string=''
     }, {
       threshold: 0.3 // how much of element needs to be in view
     });
-  
+
     this.observer.observe(this.secondContainer.nativeElement);
   }, 200 );
 
@@ -164,7 +183,7 @@ text:string=''
   private animateThirdContainerOnView() {
     setTimeout(() => {
       if (!this.thirdContainer) return;
-  
+
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -174,34 +193,55 @@ text:string=''
                 el.classList.add('animate');
               }, 300 * index); // Staggered
             });
-  
+
             if (this.observer) {
               this.observer.unobserve(entry.target);
             }
           }
         });
       }, { threshold: 0.3 });
-  
+
       this.observer.observe(this.thirdContainer.nativeElement);
     }, 200);
   }
-  
-  
+
+
 
   private animatefourthContainerOnView() {
     setTimeout(() => {
       if (!this.fourthContainer) return;
-  
+
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const animatedItems = this.fourthContainer.nativeElement.querySelectorAll('.phoneBounceIn');
+                  const itemsToAnimate = this.fourthContainer.nativeElement.querySelectorAll('.animate__animated');
+
             animatedItems.forEach((el: Element, index: number) => {
               setTimeout(() => {
                 el.classList.add('animate');
               }, 200 * index);
             });
-  
+      itemsToAnimate.forEach((el: Element) => {
+        // Create an IntersectionObserver for each individual element
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Add the animation class when the item is in view
+              const animClass = el.getAttribute('data-anim') || 'animate__fadeIn';
+              el.classList.add(animClass, 'animate__visible');
+
+              // Stop observing once the element has been animated
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.3 // Adjust this threshold to control when the animation triggers
+        });
+
+        // Start observing each element
+        observer.observe(el);
+      });
             // Unobserve after animating once
             if (this.observer) {
               this.observer.unobserve(entry.target);
@@ -211,10 +251,10 @@ text:string=''
       }, {
         threshold: 0.3,
       });
-  
+
       this.observer.observe(this.fourthContainer.nativeElement);
     }, 200);
   }
-  
-  
+
+
 }

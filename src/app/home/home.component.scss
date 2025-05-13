@@ -101,6 +101,7 @@
       width: 250px;
       height: 50px;
       font-size: 14px;
+
     }
   }
     }
@@ -336,7 +337,6 @@
 
 /* Third Container */
 .thirdContainer {
-  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -506,6 +506,7 @@
   @media (max-width: 768px) {
     display: none;
   }
+  
 
   img {
     width: 100%;
@@ -532,7 +533,6 @@
 .mobilePhone {
   display: none;
   width: 100%;
-  height: auto;
 
   @media (max-width: 768px) {
     display: block;
@@ -848,7 +848,7 @@
 
         .heading {
           h1 {
-            font-size: 28px; /* Smaller headings for landscape */
+            font-size: 18px; /* Smaller headings for landscape */
           }
 
           h2 {
@@ -1032,18 +1032,59 @@
 
     @media (max-width: 768px) {
       
-     .animate-item {
-  opacity: 1 !important;
+//      .animate-item {
+//   opacity: 1 !important;
+//   }
+
+//   .phoneBounceIn {
+//   opacity: 1 !important;
+// }
+
+
+// .offer-part {
+//   opacity: 1 !important;
+// }
+
+.heading{
+  h1{
+    font-size: 80px !important;
   }
-
-  .phoneBounceIn {
-  opacity: 1 !important;
-}
-
-
-.offer-part {
-  opacity: 1 !important;
+  h2{
+    line-height: 3 !important;
+    font-size: 30px !important;
+  }
 }
 
     }
 
+
+      .card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .card.animate {
+    animation: fadeUpIn 0.6s ease-out forwards;
+  }
+
+  .mobile{
+    display: none !important;
+    dotlottie-player{
+      display: none !important;
+
+    }
+
+        @media (max-width: 768px) {
+            display: block !important;
+             dotlottie-player{
+                     display: block !important;
+                  }
+        }
+        @media (max-width: 480px) {
+            display: block !important;
+                dotlottie-player{
+                     display: block !important;
+                  }
+        }
+  }
