@@ -27,36 +27,32 @@ export class PromotionsComponent {
     this.sanitizer.bypassSecurityTrustUrl(url); // Kept but unused
   }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.title = params['title'] || 'Promotion';
-      const imgParam = params['img'];
-      // Parse img param, expecting a JSON string like '["url1", "url2"]'
-      try {
-        this.img = imgParam ? JSON.parse(imgParam) : [];
-        if (!Array.isArray(this.img)) {
-          console.error('img param is not an array:', imgParam);
-          this.img = [];
-        }
-      } catch (e) {
-        console.error('Failed to parse img param:', imgParam, e);
+ngOnInit() {
+  if (isPlatformBrowser(this.platformId)) {
+    window.scrollTo(0, 0); // Scroll to top on page load
+  }
+  
+
+  this.route.queryParams.subscribe(params => {
+    this.title = params['title'] || 'Promotion';
+    const imgParam = params['img'];
+    try {
+      this.img = imgParam ? JSON.parse(imgParam) : [];
+      if (!Array.isArray(this.img)) {
+        console.error('img param is not an array:', imgParam);
         this.img = [];
       }
-      // Reinitialize Swiper if images change
-      if (isPlatformBrowser(this.platformId) && this.img.length > 0) {
-        this.initializeSwiper();
-      }
-    });
-  }
-
-  ngAfterViewInit() {
-    // Initialize Swiper only if images are available
+    } catch (e) {
+      console.error('Failed to parse img param:', imgParam, e);
+      this.img = [];
+    }
     if (isPlatformBrowser(this.platformId) && this.img.length > 0) {
       this.initializeSwiper();
     }
-  }
+  });
+}
 
-     private initializeSwiper(attempts = 0, maxAttempts = 5) {
+     private initializeSwiper(attempts = 0, maxAttempts = 5) {        
     const container = this.swiperContainer?.nativeElement;
     if (!container || !container.querySelector('.swiper-wrapper')) {
       if (attempts < maxAttempts) {
@@ -88,6 +84,7 @@ export class PromotionsComponent {
     setTimeout(() => {
       this.animateSlideText(swiper);
     }, 0);
+
   }
 
   private animateSlideText(swiper: Swiper) {
